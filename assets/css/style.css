@@ -30,7 +30,7 @@
 
 #forms {
     display: grid;
-    grid-template-columns: 30% 30% 40%;
+    grid-template-columns: 20% 40% 40%;
     margin-bottom: 25px;
 }
 

@@ -47,7 +47,17 @@ var getBrews = function() {
   city = replaceSpaceCity;
   console.log(city);
 
-  //breweryUrl = ""
+  var breweryUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&per_page=5"
+  console.log(breweryUrl);
+
+  fetch(breweryUrl).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+        })
+      }
+    })
+
 }
 
 searchBtn.addEventListener("click", getBrews);

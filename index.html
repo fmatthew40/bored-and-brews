@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -14,97 +15,149 @@
             <p class="motto">"Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
     </header>
+    <secion class="container">
+        <div class="tile is-ancestor">
+            <div id="calendar" class="tile is-vertical is-12">
+                <div class="tile">
+                    <div class="tile is-vertical is-4">
+                        <div class="tile is-parent">
+                            <article class="day tile is-child notification is-primary" id="monday">
+                                <p class="title">Monday</p>
+                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Brews: <span></span></p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="day tile is-child notification is-primary" id="thursday">
+                                <p class="title">Thursday</p>
+                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Brews: <span></span></p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="tile is-vertical is-4">
+                        <div class="tile is-parent">
+                            <article class="day tile is-child notification is-primary" id="tuesday">
+                                <p class="title">Tuesday</p>
+                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Brews: <span></span></p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class=" day tile is-child notification is-primary" id="friday">
+                                <p class="title">Friday</p>
+                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Brews: <span></span></p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="tile is-vertical is-4">
+                        <div class="tile is-parent">
+                            <article class="day tile is-child notification is-primary" id="wednesday">
+                                <p class="title">Wednesday</p>
+                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Brews: <span></span></p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="day tile is-child notification is-primary" id="saturday">
+                                <p class="title">Saturday</p>
+                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Brews: <span></span></p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <article class="day tile is-child notification is-primary" id="sunday">
+                        <p class="title">Sunday</p>
+                        <p class="subtitle">Boredom Beater: <span></span></p>
+                        <p class="subtitle">Brews: <span></span></p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </secion>
+    <!-- MODAL forms for activity and brewery search -->
+    <section>
+        <!-- The Modal -->
+        <div id="modal" class="modal">
 
-    <main>
-        <div id="left-panel">
-            <div id="boredom">
-                <h2>Defeat your Boredom</h2>
-                <h3>Choose A Category</h3>
-
-                <div id="radio-buttons">
-                    <!-- Add radio buttons -->
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="forms">
+                    <form>
+                        <h2 class="is-size-3">Activities</h2>
+                        <div class="control activity-radio">
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              Cooking
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              DIY
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              Recreational
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              Charity
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              Social
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              Relaxation
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              Education
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              Music
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="activity">
+                              Busywork
+                            </label>
+                          </div>
+                    </form>
+                    <div class="field" id="part-form">
+                        <label class="label">Number of Participants</label>
+                        <div class="select">
+                            <select>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8+</option>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="field" id="brew-form">
+                        <label class="label has-text-left">Enter a city to search for brews near you!</label>
+                        <div class="control">
+                          <input class="input" type="text" placeholder="Tucson">
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-mobile is-centered">
+                    <button id="search" class="button is-warning is-large is-inverted column is-8">Defeat Boredome and Brews</button>
                 </div>
                 
-            <div class="part-form">
-                <form class="participants">
-                    <label class="part-label" for="people">Number of Participants</label>
-                    <input type="text" name="people">
-                    <button class="part-submit" type="submit">Submit</button>
-                </form>
-            </div>
-                
-                <ul class="activities">
-                    <li id="act1">Draggable</li>
-                    <li id="act2">Draggable</li>
-                    <li id="act3">Draggable</li>
-                    <li id="act4">Draggable</li>
-                    <li id="act5">Draggable</li>
-                </ul>
             </div>
 
-            <div class="brewery">
-                <h2>Find a Brewery Near You:</h2>
-                <form class="city-search">
-                    <label class="find-city" name="city">Enter Your City:</label> 
-                    <input type="text" class="city-text" for="city">
-                    <button class="city-btn" type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="weekly-calendar">
-            <button class="monday">Monday</button>
-            <button class="tuesday">Tuesday</button>
-            <button class="wednesday">Wednesday</button>
-            <button class="thursday">Thursday</button>
-            <button class="friday">Friday</button>
-            <button class="saturday">Saturday</button>
-            <button class="sunday">Sunday</button>
-        </div>
-        
-    </main>
-
-    <section class="columns">
-        <div class="column is-one-third">
-            <div id="checkbox" class="is-flex flex-direction  is-flex-direction-column">
-                <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
-                </label>
-                <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
-                </label>
-                <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
-                </label>
-                <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
-                </label>
-                <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
-                </label>
-                <button class="button ">Search</button>
-            </div>
-            <div id="brew-search">
-                <input class="input" type="text" placeholder="city to Search">
-                <button class="button">Search</button>
-            </div>
-        </div>
-        
-        <div class="column">
-            <div class="row" id="monday">This is monday</div>
-            <div class="row" id="tuesday">This is tuesday</div>
-            <div class="row" id="wednesday"> This is wednesday</div>
-            <div class="row" id="thursday"></div>
-            <div class="row" id="friday"></div>
-            <div class="row" id="saterday"></div>
-            <div class="row" id="sunday"></div>
         </div>
     </section>
-    
+    <script src="./assets/javascript/script.js"></script>
 </body>
 </html>

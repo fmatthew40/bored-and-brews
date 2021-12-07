@@ -25,6 +25,10 @@ var divHandler = function(event) {
 
 var modalInputFunction = function (day) {
     modal.style.display = "block";
+
+    // clear modal brewery city search and display
+    cityInput.value = "";
+    breweryList.textContent = "";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -56,7 +60,7 @@ var getBrews = function() {
         response.json().then(function (data) {
           console.log(data);
 
-          // Clear prior searches
+          // Clear prior searches from ordered list
           breweryList.textContent = "";
 
           // Call function to display breweries in modal
@@ -66,36 +70,30 @@ var getBrews = function() {
     })
 }
 
-// Function to display five breweries in an ordered list under the city search input field 
+// Function to display breweries in an ordered list under the city search input field 
 var displayBreweries = function(breweries) {
 
   for(i = 0; i < breweries.length; i++) {
     var breweryName = document.createElement("li");
-    breweryName.className = "brew" + i
+    breweryName.className = "brew" 
     breweryName.textContent = breweries[i].name;
     breweryList.append(breweryName);
   }
-  // var breweryList = document.getElementById("breweries");
-  // var brewery1 = document.createElement("li");
-  // var brewery2 = document.createElement("li");
-  // var brewery3 = document.createElement("li");
-  // var brewery4 = document.createElement("li");
-  // var brewery5 = document.createElement("li");
 
-  // brewery1.textContent = brew1;
-  // brewery2.textContent = brew2;
-  // brewery3.textContent = brew3;
-  // brewery4.textContent = brew4;
-  // brewery5.textContent = brew5;
-
-  //breweryList.addEventListener("click", displaySelectedBrewery);
+  breweryList.addEventListener("click", displaySelectedBrewery);
 }
 
-// var displaySelectedBrewery = function(event) {
+var displaySelectedBrewery = function(event) {
 
-//   if(event.target.matches())
-//   var selectedBrewery = 
-// }
+  if(event.target.matches(".brew")) {
+    var selectedBrewery = event.target.textContent;
+    console.log(selectedBrewery);
+  }
+
+
+
+
+}
 
 searchBtn.addEventListener("click", getBrews);
 

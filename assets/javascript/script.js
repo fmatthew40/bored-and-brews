@@ -7,6 +7,8 @@ var fridayDiv = document.querySelector("#friday");
 var saturdayDiv = document.querySelector("#saturday");
 var sundayDiv = document.querySelector("#sunday");
 var modal = document.getElementById("modal");
+var cityInput = document.getElementById("city");
+var searchBtn = document.getElementById("search");
 var modalExit = document.getElementsByClassName("close")[0];
 
 
@@ -35,5 +37,19 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
+var getBrews = function() {
+  var city = cityInput.value;
+  console.log(city);
+
+  var replaceSpaceCity = city.replace(/ /,"_");
+  city = replaceSpaceCity;
+  console.log(city);
+
+  //breweryUrl = ""
+}
+
+searchBtn.addEventListener("click", getBrews);
 
 calendarDiv.addEventListener("click", divHandler);

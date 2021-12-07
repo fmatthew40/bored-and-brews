@@ -8,6 +8,7 @@ var saturdayDiv = document.querySelector("#saturday");
 var sundayDiv = document.querySelector("#sunday");
 var modal = document.getElementById("modal");
 var cityInput = document.getElementById("city");
+var breweryList = document.getElementById("breweries");
 var searchBtn = document.getElementById("search");
 var modalExit = document.getElementsByClassName("close")[0];
 
@@ -43,7 +44,7 @@ var getBrews = function() {
   var city = cityInput.value;
   console.log(city);
 
-  var replaceSpaceCity = city.replace(/ /,"_");
+  var replaceSpaceCity = city.replace(/ /g,"_");
   city = replaceSpaceCity;
   console.log(city);
 
@@ -54,34 +55,47 @@ var getBrews = function() {
     if (response.ok) {
         response.json().then(function (data) {
           console.log(data);
-          // Get brewery Names
-          var brew1 = data[0].name
-          var brew2 = data[1].name
-          var brew3 = data[2].name
-          var brew4 = data[3].name
-          var brew5 = data[4].name
+
+          // Clear prior searches
+          breweryList.textContent = "";
 
           // Call function to display breweries in modal
-          displayBreweries(brew1, brew2, brew3, brew4, brew5);
+          displayBreweries(data);
         })
       }
     })
 }
 
-var displayBreweries = function(brew1, brew2, brew3, brew4, brew5) {
+// Function to display five breweries in an ordered list under the city search input field 
+var displayBreweries = function(breweries) {
 
-  var brewery1 = document.getElementById("brew1");
-  var brewery2 = document.getElementById("brew2");
-  var brewery3 = document.getElementById("brew3");
-  var brewery4 = document.getElementById("brew4");
-  var brewery5 = document.getElementById("brew5");
+  for(i = 0; i < breweries.length; i++) {
+    var breweryName = document.createElement("li");
+    breweryName.className = "brew" + i
+    breweryName.textContent = breweries[i].name;
+    breweryList.append(breweryName);
+  }
+  // var breweryList = document.getElementById("breweries");
+  // var brewery1 = document.createElement("li");
+  // var brewery2 = document.createElement("li");
+  // var brewery3 = document.createElement("li");
+  // var brewery4 = document.createElement("li");
+  // var brewery5 = document.createElement("li");
 
-  brewery1.textContent = brew1;
-  brewery2.textContent = brew2;
-  brewery3.textContent = brew3;
-  brewery4.textContent = brew4;
-  brewery5.textContent = brew5;
+  // brewery1.textContent = brew1;
+  // brewery2.textContent = brew2;
+  // brewery3.textContent = brew3;
+  // brewery4.textContent = brew4;
+  // brewery5.textContent = brew5;
+
+  //breweryList.addEventListener("click", displaySelectedBrewery);
 }
+
+// var displaySelectedBrewery = function(event) {
+
+//   if(event.target.matches())
+//   var selectedBrewery = 
+// }
 
 searchBtn.addEventListener("click", getBrews);
 

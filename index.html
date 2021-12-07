@@ -10,32 +10,96 @@
 <body>
     <header class="hero">
         <div class="hero-body">
-            <p class="title">Borde and Brews</p>
+            <h1 class="title">Bored and Brews</h1>
+            <p class="motto">"Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
     </header>
+
+    <main>
+        <div id="left-panel">
+            <div id="boredom">
+                <h2>Defeat your Boredom</h2>
+                <h3>Choose A Category</h3>
+
+                <div id="radio-buttons">
+                    <!-- Add radio buttons -->
+                </div>
+                
+            <div class="part-form">
+                <form class="participants">
+                    <label class="part-label" for="people">Number of Participants</label>
+                    <input type="text" name="people">
+                    <button class="part-submit" type="submit">Submit</button>
+                </form>
+            </div>
+                
+                <ul class="activities">
+                    <li id="act1">Draggable</li>
+                    <li id="act2">Draggable</li>
+                    <li id="act3">Draggable</li>
+                    <li id="act4">Draggable</li>
+                    <li id="act5">Draggable</li>
+                </ul>
+            </div>
+
+            <div class="brewery">
+                <h2>Find a Brewery Near You:</h2>
+                <form class="city-search">
+                    <label class="find-city" name="city">Enter Your City:</label> 
+                    <input type="text" class="city-text" for="city">
+                    <button class="city-btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="weekly-calendar">
+            <button class="monday">Monday</button>
+            <button class="tuesday">Tuesday</button>
+            <button class="wednesday">Wednesday</button>
+            <button class="thursday">Thursday</button>
+            <button class="friday">Friday</button>
+            <button class="saturday">Saturday</button>
+            <button class="sunday">Sunday</button>
+        </div>
+        
+    </main>
+
     <section class="columns">
         <div class="column is-one-third">
             <div id="checkbox" class="is-flex flex-direction  is-flex-direction-column">
                 <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
+                    <input type="checkbox" id="recreational">
+                    Recreational
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
+                    <input type="checkbox" id="cooking">
+                    Cooking
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
+                    <input type="checkbox" id="education" >
+                    Education
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
+                    <input type="checkbox" id="music">
+                    Music
                 </label>
                 <label class="checkbox">
-                    <input type="checkbox">
-                    Activity One
+                    <input type="checkbox" id="relaxation">
+                    Relaxation
                 </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="diy" >
+                    DIY
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="social">
+                    Social
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="busywork">
+                    Busywork
+                </label>
+                <ol id="returned-activities"></ol>
                 <button class="button ">Search</button>
             </div>
             <div id="brew-search">
@@ -55,5 +119,7 @@
         </div>
     </section>
     
+    <script src ="./assets/javascript/bored.js"></script>
 </body>
 </html>
+

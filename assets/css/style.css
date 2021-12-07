@@ -30,7 +30,7 @@
 
 #forms {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 30% 30% 40%;
     margin-bottom: 25px;
 }
 
@@ -64,5 +64,19 @@
 @media screen and (max-width:724px) {
     #search {
         font-size: 20px!important;
+    }
+    .activity-radio {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+    }
+
+    #forms {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 25% 25%;
+    }
+    #forms>* {
+        margin-bottom: 25px;
     }
 }

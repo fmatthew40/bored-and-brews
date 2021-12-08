@@ -1,7 +1,80 @@
+:root {
+    --vino: rgba(84,3,50,96);
+    --wood: rgba(98,47,34,80);
+    --meat: rgba(255,191,191,100);
+    --bronze: rgba(199,142,66,76);
+    --cocao: rgba(157,102,102,100);
+}
+
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    border-radius: 13px;
+}
+
+.title,
+.subtitle {
+    color: var(--vino);
+    text-align: left;
+    font-size: 30px;
+    
+}
+
+
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--vino);
+
+}
+.body-wrap {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin:10%;
+}
+/* Header */
+header {
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 11%;
+    margin-top: 3%;
+    background-color: var(--meat);
+}
+.hero-body {
+    background-color: var(--bronze);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 30%;
+    margin-top: 20px;
+}
+
+/* Containers */
+
+.notification.is-primary{
+    background-color: var(--bronze);
+}
+.container {
+  
+    
+}
+.tile {
+    background-color: var(--meat);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin:2px;
 }
 
 
@@ -21,7 +94,7 @@
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--vino);
     margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;

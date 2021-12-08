@@ -112,8 +112,6 @@ var getActivities = function() {
   }
   }
     getBoredApiData(radioActVal);
-
-    activityList.addEventListener("click", chooseActivity)
 }
 
 var getBoredApiData = function(radioActVal) {
@@ -126,7 +124,7 @@ var getBoredApiData = function(radioActVal) {
         response.json().then(function (data){
           console.log(data);
           //console.log(data.activity);
-          displayActivities(data.activity)
+          displayActivities(data.activity);
         })
       }
     })
@@ -139,6 +137,8 @@ var displayActivities = function (activity) {
   activityItem.textContent = activity;
   activityItem.className = "act-item"
   activityList.append(activityItem);
+
+  activityList.addEventListener("click", chooseActivity);
 }
 
 var chooseActivity = function(event) {
@@ -149,6 +149,8 @@ var chooseActivity = function(event) {
     console.log(selectedAct);
 
     var findActDaySpan = document.getElementsByClassName(day + "-bored")
+    var actSpan = findActDaySpan[0];
+    actSpan.innerHTML = selectedAct;
   }
 }
 
@@ -160,3 +162,4 @@ calendarDiv.addEventListener("click", divHandler);
 
 
 //getting repeat activities fix that issue
+//need two search buttons

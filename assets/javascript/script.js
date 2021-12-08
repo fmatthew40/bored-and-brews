@@ -12,6 +12,40 @@ var breweryList = document.getElementById("breweries");
 var searchBtn = document.getElementById("search");
 var modalExit = document.getElementsByClassName("close")[0];
 var activityArray = [];
+var now = new Date();
+var timeToMidnight = getTimetoMidnight(now);
+
+// get time in miliseconds to set timeout 
+function getTimetoMidnight (now) {
+  var mili = now.getMilliseconds();
+  var sec = now.getSeconds() * 1000;
+  var min = now.getMinutes() * 60 * 1000;
+  var hour = now.getHours() *60 *60 * 1000;
+  var timeinMil = mili + sec + min + hour;
+  var timetomidnight = (24 * 60 * 60 * 1000) - timeinMil;
+  return timetomidnight;
+}
+
+setTimeout(() => {alert("timeout");
+  
+}, 5000);
+
+setTimeout(() => {setInterval((today) => {
+  //var today = now.getDay();
+  today = 2;
+  if (today === 1) {
+    activityArray = [];
+    localStorage.setItem("activities", JSON.stringify(activityArray));
+    loadActivites();
+  }
+  else {
+    return;
+  }
+}, (24 * 60 * 60 * 1000));
+  
+}, timeToMidnight);
+
+// load activites to load activites from 
 
 
 // handler to call modal when a day is clicked
@@ -90,8 +124,13 @@ var displaySelectedBrewery = function(event) {
   if(selectedListItem.matches(".brew")) {
     var findDaySpan = document.getElementsByClassName(day + "-brews")[0];
     findDaySpan.innerHTML = selectedListItem.textContent;
+    saveActivites();
   }
 }
+
+
+// exit function to exit modal MAKE SURE TO CALL SAVE ACTIVITES WITH THIS FUNCTION
+
 
 // save activities and breweries in local storage
 var saveActivites = function() {

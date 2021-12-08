@@ -16,6 +16,7 @@ var modalExit = document.getElementsByClassName("close")[0];
 // handler to call modal when a day is clicked
 var divHandler = function(event) {
     day = event.target;
+    
     if (day.matches(".day>*, .day")) {
         day = day.closest("article").getAttribute("id");
         modalInputFunction(day);
@@ -75,24 +76,27 @@ var displayBreweries = function(breweries) {
 
   for(i = 0; i < breweries.length; i++) {
     var breweryName = document.createElement("li");
-    breweryName.className = "brew" 
+    breweryName.className = "brew"; 
+    breweryName.id = "brew" + i;
     breweryName.textContent = breweries[i].name;
     breweryList.append(breweryName);
   }
-
-  breweryList.addEventListener("click", displaySelectedBrewery);
+    // Call function to display brewery on calendar on click
+    breweryList.addEventListener("click", displaySelectedBrewery);
 }
 
+// Function to display brewery on weekday on click
 var displaySelectedBrewery = function(event) {
 
-  if(event.target.matches(".brew")) {
+  var selectedListItem = event.target
+  if(selectedListItem.matches(".brew")) {
     var selectedBrewery = event.target.textContent;
     console.log(selectedBrewery);
+
+    var findDaySpan = document.getElementsByClassName(day + "-brews");
+    var span = findDaySpan[0];
+    span.innerHTML = selectedBrewery;
   }
-
-
-
-
 }
 
 searchBtn.addEventListener("click", getBrews);

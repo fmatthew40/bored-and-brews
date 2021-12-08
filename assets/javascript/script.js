@@ -1,11 +1,4 @@
 var calendarDiv = document.querySelector("#calendar");
-var mondayDiv = document.querySelector("#monday");
-var tuesdayDiv = document.querySelector("#tuesday");
-var wednesdayDiv = document.querySelector("#wednesday");
-var thursdayDiv = document.querySelector("#thursday");
-var fridayDiv = document.querySelector("#friday");
-var saturdayDiv = document.querySelector("#saturday");
-var sundayDiv = document.querySelector("#sunday");
 var modal = document.getElementById("modal");
 var cityInput = document.getElementById("city");
 var breweryList = document.getElementById("breweries");
@@ -14,7 +7,9 @@ var modalExit = document.getElementsByClassName("close")[0];
 var activityArray = [];
 var now = new Date();
 var timeToMidnight = getTimetoMidnight(now);
-
+var day = "";
+var activity = "";
+var brew = "";
 // get time in miliseconds to set timeout 
 function getTimetoMidnight (now) {
   var mili = now.getMilliseconds();
@@ -26,14 +21,11 @@ function getTimetoMidnight (now) {
   return timetomidnight;
 }
 
-setTimeout(() => {alert("timeout");
-  
-}, 5000);
+//time out funcition to set interval to clear calendar monday at midnight
 
 setTimeout(() => {setInterval((today) => {
-  //var today = now.getDay();
-  today = 2;
-  if (today === 1) {
+  var today = now.getDay();
+   if (today === 1) {
     activityArray = [];
     localStorage.setItem("activities", JSON.stringify(activityArray));
     loadActivites();
@@ -45,17 +37,21 @@ setTimeout(() => {setInterval((today) => {
   
 }, timeToMidnight);
 
-// load activites to load activites from 
-
 
 // handler to call modal when a day is clicked
 var divHandler = function(event) {
     day = event.target;
-    
     if (day.matches(".day>*, .day")) {
-        day = day.closest("article").getAttribute("id");
-        modalInputFunction();
+      day = day.closest("article").getAttribute("id");
+      setVariables(day);
+      modalInputFunction();
     }
+}
+
+// set global day, brew and activity variables
+var setVariables = function (day) {
+  activity = document.getElementsByClassName(day + "-activity")[0];
+  brew = document.getElementsByClassName(day + "-brews")[0];
 }
 
 
@@ -81,17 +77,13 @@ window.onclick = function(event) {
 
 // When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
 var getBrews = function() {
-  var city = cityInput.value;
-
-  var replaceSpaceCity = city.replace(/ /g,"_");
-  city = replaceSpaceCity;
+  var city = cityInput.value.replace(/ /g,"_");
 
   var breweryUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&per_page=5"
 
   fetch(breweryUrl).then(function (response) {
     if (response.ok) {
         response.json().then(function (data) {
-          console.log(data);
 
           // Clear prior searches from ordered list
           breweryList.textContent = "";
@@ -122,31 +114,35 @@ var displaySelectedBrewery = function(event) {
 
   var selectedListItem = event.target
   if(selectedListItem.matches(".brew")) {
-    var findDaySpan = document.getElementsByClassName(day + "-brews")[0];
-    findDaySpan.innerHTML = selectedListItem.textContent;
+    brew.innerHTML = selectedListItem.textContent;
     saveActivites();
   }
 }
 
 
-// exit function to exit modal MAKE SURE TO CALL SAVE ACTIVITES WITH THIS FUNCTION
-
-
 // save activities and breweries in local storage
 var saveActivites = function() {
-  // for loop to go over each day dive and add span content
-  var days = document.querySelectorAll(".day");
-  console.log(days);
-  for (var i = 0; i < days.length; i++) {
-    var arrayDay = days[i].id;
-    var arrayActivity = document.getElementsByClassName(arrayDay + "-activity")[0].innerText;
-    var arrayBrew = document.getElementsByClassName(arrayDay + "-brews")[0].innerText;
-    var arrayObj = {"day": arrayDay, "activity": arrayActivity, "brew":arrayBrew};
-    activityArray.push(arrayObj);
-  }
+  var arrayObj = {"day": day, "activity": activity.innerHTML, "brew":brew.innerHTML};
+  activityArray.push(arrayObj);
+  // save object to local storage array
   localStorage.setItem("activities", JSON.stringify(activityArray));
 }
 
-searchBtn.addEventListener("click", getBrews);
+// load activites and breweries from local storage
+var loadActivites = function () {
+  var storedData = JSON.parse(localStorage.getItem("activities"));
+  if (!storedData) {
+    activityArray = [];
+  }
+  else {
+    for (var i = 0; i < storedData.length; i++) {
+      setVariables(storedData[i].day);
+      activity.innerHTML = storedData[i].activity;
+      brew.innerHTML = storedData[i].brew
+    }
+  }
+}
 
+loadActivites();
+searchBtn.addEventListener("click", getBrews);
 calendarDiv.addEventListener("click", divHandler);

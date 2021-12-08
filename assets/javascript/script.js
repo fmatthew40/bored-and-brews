@@ -7,12 +7,16 @@ var fridayDiv = document.querySelector("#friday");
 var saturdayDiv = document.querySelector("#saturday");
 var sundayDiv = document.querySelector("#sunday");
 var modal = document.getElementById("modal");
+var cityInput = document.getElementById("city");
+var breweryList = document.getElementById("breweries");
+var searchBtn = document.getElementById("search");
 var modalExit = document.getElementsByClassName("close")[0];
 
 
 // handler to call modal when a day is clicked
 var divHandler = function(event) {
     day = event.target;
+    
     if (day.matches(".day>*, .day")) {
         day = day.closest("article").getAttribute("id");
         modalInputFunction(day);
@@ -22,6 +26,10 @@ var divHandler = function(event) {
 
 var modalInputFunction = function (day) {
     modal.style.display = "block";
+
+    // clear modal brewery city search and display
+    cityInput.value = "";
+    breweryList.textContent = "";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -35,5 +43,62 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
+var getBrews = function() {
+  var city = cityInput.value;
+  console.log(city);
+
+  var replaceSpaceCity = city.replace(/ /g,"_");
+  city = replaceSpaceCity;
+  console.log(city);
+
+  var breweryUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&per_page=5"
+  console.log(breweryUrl);
+
+  fetch(breweryUrl).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+
+          // Clear prior searches from ordered list
+          breweryList.textContent = "";
+
+          // Call function to display breweries in modal
+          displayBreweries(data);
+        })
+      }
+    })
+}
+
+// Function to display breweries in an ordered list under the city search input field 
+var displayBreweries = function(breweries) {
+
+  for(i = 0; i < breweries.length; i++) {
+    var breweryName = document.createElement("li");
+    breweryName.className = "brew"; 
+    breweryName.id = "brew" + i;
+    breweryName.textContent = breweries[i].name;
+    breweryList.append(breweryName);
+  }
+    // Call function to display brewery on calendar on click
+    breweryList.addEventListener("click", displaySelectedBrewery);
+}
+
+// Function to display brewery on weekday on click
+var displaySelectedBrewery = function(event) {
+
+  var selectedListItem = event.target
+  if(selectedListItem.matches(".brew")) {
+    var selectedBrewery = event.target.textContent;
+    console.log(selectedBrewery);
+
+    var findDaySpan = document.getElementsByClassName(day + "-brews");
+    var span = findDaySpan[0];
+    span.innerHTML = selectedBrewery;
+  }
+}
+
+searchBtn.addEventListener("click", getBrews);
 
 calendarDiv.addEventListener("click", divHandler);

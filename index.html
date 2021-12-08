@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
     <title>Document</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
             <div class="part-form">
                 <form class="participants">
                     <label class="part-label" for="people">Number of Participants</label>
-                    <input type="text" name="people">
+                    <input id="participant-number" type="text" name="people">
                     <button class="part-submit" type="submit">Submit</button>
                 </form>
             </div>
@@ -72,6 +73,10 @@
                     Recreational
                 </label>
                 <label class="checkbox">
+                    <input type="checkbox" id="charity">
+                    Charity
+                </label>
+                <label class="checkbox">
                     <input type="checkbox" id="cooking">
                     Cooking
                 </label>
@@ -106,6 +111,22 @@
                 <input class="input" type="text" placeholder="city to Search">
                 <button class="button">Search</button>
             </div>
+        </div>
+
+        <div class="field" id="part-form">
+            <label class="label">Number of Participants</label>
+            <div class="select">
+                <select id="choice" >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value = "4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8+</option>
+                </select>
+              </div>
         </div>
         
         <div class="column">

@@ -6,23 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>Bored and Brews</title>
 </head>
-<body class="body-wrap">
+
+<body>
     <!----------HERO----------->
     <header class="hero">
         <div class="hero-body">
-            <p class="title">Borde and Brews</p>
+            <h1 class="title">Bored and Brews</h1>
+            <p class="motto">"Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
         </div>
     </header>
 
-    <!--------Containers------->
-    <secion class="container">
+    <!-------------------Container------------------>
+    <section class="container">
         <div class="tile is-ancestor">
+            <!------calendar-box--->
             <div id="calendar" class="tile is-vertical is-12">
                    
 
-            
+            <!--------------------->
                 <div class="tile">
 
                     <div class="tile is-vertical is-4">
@@ -30,7 +33,7 @@
                             <article class="day tile is-child notification is-primary" id="monday">
                                 <p class="title">Monday</p>
                                 <p class="subtitle">Boredom Beater: <span></span></p>
-                                <p class="subtitle">Brews: <span></span></p>
+                                <p class="subtitle">Brews: <span class="monday-brews"></span></p>
                             </article>
                         </div>
 
@@ -38,7 +41,7 @@
                             <article class="day tile is-child notification is-primary" id="thursday">
                                 <p class="title">Thursday</p>
                                 <p class="subtitle">Boredom Beater: <span></span></p>
-                                <p class="subtitle">Brews: <span></span></p>
+                                <p class="subtitle">Brews: <span class="thursday-brews"></span></p>
                             </article>
                         </div>
                   </div>
@@ -48,7 +51,7 @@
                             <article class="day tile is-child notification is-primary" id="tuesday">
                                 <p class="title">Tuesday</p>
                                 <p class="subtitle">Boredom Beater: <span></span></p>
-                                <p class="subtitle">Brews: <span></span></p>
+                                <p class="subtitle">Brews: <span class="tuesday-brews"></span></p>
                             </article>
                         </div>
 
@@ -56,7 +59,7 @@
                             <article class=" day tile is-child notification is-primary" id="friday">
                                 <p class="title">Friday</p>
                                 <p class="subtitle">Boredom Beater: <span></span></p>
-                                <p class="subtitle">Brews: <span></span></p>
+                                <p class="subtitle">Brews: <span class="friday-brews"></span></p>
                             </article>
                         </div>
                     </div>
@@ -66,14 +69,14 @@
                             <article class="day tile is-child notification is-primary" id="wednesday">
                                 <p class="title">Wednesday</p>
                                 <p class="subtitle">Boredom Beater: <span></span></p>
-                                <p class="subtitle">Brews: <span></span></p>
+                                <p class="subtitle">Brews: <span class="wednesday-brews"></span></p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="day tile is-child notification is-primary" id="saturday">
                                 <p class="title">Saturday</p>
                                 <p class="subtitle">Boredom Beater: <span></span></p>
-                                <p class="subtitle">Brews: <span></span></p>
+                                <p class="subtitle">Brews: <span class="saturday-brews"></span></p>
                             </article>
                         </div>
                     </div>
@@ -83,15 +86,13 @@
                     <article class="day tile is-child notification is-primary" id="sunday">
                         <p class="title">Sunday</p>
                         <p class="subtitle">Boredom Beater: <span></span></p>
-                        <p class="subtitle">Brews: <span></span></p>
+                        <p class="subtitle">Brews: <span class="sunday-brews"></span></p>
                     </article>
                 </div>
 
             </div>
         </div>
-    </secion>
-
-    
+    </section>
     <!-- MODAL forms for activity and brewery search -->
     <section>
         <!-- The Modal -->
@@ -156,16 +157,23 @@
                               <option>8+</option>
                             </select>
                           </div>
+                          <p>Click on an activity below to add it to your calendar:</p>
+                          <ol id="activities"></ol>
                     </div>
                     <div class="field" id="brew-form">
                         <label class="label has-text-left">Enter a city to search for brews near you!</label>
                         <div class="control">
-                          <input class="input" type="text" placeholder="Tucson">
+                          <input id="city" class="input" type="text" placeholder="Tucson">
+                        </div>
+                        <div id="brewery-display">
+                            <p>Click on a brewery below to add it to calendar:</p>
+                            
+                            <ol id="breweries"></ol>
                         </div>
                     </div>
                 </div>
                 <div class="columns is-mobile is-centered">
-                    <button id="search" class="button is-warning is-large is-inverted column is-8">Defeat Boredome and Brews</button>
+                    <button id="search" class="button is-warning is-large is-inverted column is-12">Search</button>
                 </div>
                 
             </div>

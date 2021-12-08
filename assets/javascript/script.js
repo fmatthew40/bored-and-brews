@@ -7,6 +7,7 @@ var fridayDiv = document.querySelector("#friday");
 var saturdayDiv = document.querySelector("#saturday");
 var sundayDiv = document.querySelector("#sunday");
 var modal = document.getElementById("modal");
+var activitiesRadio = document.getElementsByName("activity")
 var cityInput = document.getElementById("city");
 var breweryList = document.getElementById("breweries");
 var searchBtn = document.getElementById("search");
@@ -99,6 +100,63 @@ var displaySelectedBrewery = function(event) {
   }
 }
 
+// Function to get activities from bored API
+
+var getActivities = function() {
+  for(i = 0; i < activitiesRadio.length; i++) {
+
+    var radioValue = activitiesRadio[i];
+
+    if(radioValue.checked) {
+      radioActVal = radioValue.value;
+  }
+  }
+    getBoredApiData(radioActVal);
+
+    activityList.addEventListener("click", chooseActivity)
+}
+
+var getBoredApiData = function(radioActVal) {
+  
+  var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
+
+  for(i = 0; i < 5; i++) {
+    fetch(boredUrl).then(function(response) {
+      if(response.ok) {
+        response.json().then(function (data){
+          console.log(data);
+          //console.log(data.activity);
+          displayActivities(data.activity)
+        })
+      }
+    })
+  } 
+}
+
+var displayActivities = function (activity) {
+  var activityList = document.getElementById("activities");
+  var activityItem = document.createElement("li");
+  activityItem.textContent = activity;
+  activityItem.className = "act-item"
+  activityList.append(activityItem);
+}
+
+var chooseActivity = function(event) {
+
+  var chosenAct = event.target
+  if(chosenAct.matches(".act-item")) {
+    var selectedAct = event.target.textContent;
+    console.log(selectedAct);
+
+    var findActDaySpan = document.getElementsByClassName(day + "-bored")
+  }
+}
+
+searchBtn.addEventListener("click", getActivities);
+
 searchBtn.addEventListener("click", getBrews);
 
 calendarDiv.addEventListener("click", divHandler);
+
+
+//getting repeat activities fix that issue

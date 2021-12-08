@@ -91,11 +91,9 @@ var displaySelectedBrewery = function(event) {
   var selectedListItem = event.target
   if(selectedListItem.matches(".brew")) {
     var selectedBrewery = event.target.textContent;
-    console.log(selectedBrewery);
-
     var findDaySpan = document.getElementsByClassName(day + "-brews");
     var span = findDaySpan[0];
-    span.innerHTML = selectedBrewery;
+    findDaySpan.innerHTML = selectedBrewery;
   }
 }
 

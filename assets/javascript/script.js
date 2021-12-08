@@ -11,6 +11,7 @@ var cityInput = document.getElementById("city");
 var breweryList = document.getElementById("breweries");
 var searchBtn = document.getElementById("search");
 var modalExit = document.getElementsByClassName("close")[0];
+var activityArray = [];
 
 
 // handler to call modal when a day is clicked
@@ -19,12 +20,12 @@ var divHandler = function(event) {
     
     if (day.matches(".day>*, .day")) {
         day = day.closest("article").getAttribute("id");
-        modalInputFunction(day);
+        modalInputFunction();
     }
 }
 
 
-var modalInputFunction = function (day) {
+var modalInputFunction = function () {
     modal.style.display = "block";
 
     // clear modal brewery city search and display
@@ -47,14 +48,11 @@ window.onclick = function(event) {
 // When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
 var getBrews = function() {
   var city = cityInput.value;
-  console.log(city);
 
   var replaceSpaceCity = city.replace(/ /g,"_");
   city = replaceSpaceCity;
-  console.log(city);
 
   var breweryUrl = "https://api.openbrewerydb.org/breweries?by_city=" + city + "&per_page=5"
-  console.log(breweryUrl);
 
   fetch(breweryUrl).then(function (response) {
     if (response.ok) {
@@ -90,11 +88,24 @@ var displaySelectedBrewery = function(event) {
 
   var selectedListItem = event.target
   if(selectedListItem.matches(".brew")) {
-    var selectedBrewery = event.target.textContent;
-    var findDaySpan = document.getElementsByClassName(day + "-brews");
-    var span = findDaySpan[0];
-    findDaySpan.innerHTML = selectedBrewery;
+    var findDaySpan = document.getElementsByClassName(day + "-brews")[0];
+    findDaySpan.innerHTML = selectedListItem.textContent;
   }
+}
+
+// save activities and breweries in local storage
+var saveActivites = function() {
+  // for loop to go over each day dive and add span content
+  var days = document.querySelectorAll(".day");
+  console.log(days);
+  for (var i = 0; i < days.length; i++) {
+    var arrayDay = days[i].id;
+    var arrayActivity = document.getElementsByClassName(arrayDay + "-activity")[0].innerText;
+    var arrayBrew = document.getElementsByClassName(arrayDay + "-brews")[0].innerText;
+    var arrayObj = {"day": arrayDay, "activity": arrayActivity, "brew":arrayBrew};
+    activityArray.push(arrayObj);
+  }
+  localStorage.setItem("activities", JSON.stringify(activityArray));
 }
 
 searchBtn.addEventListener("click", getBrews);

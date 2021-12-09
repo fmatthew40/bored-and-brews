@@ -69,12 +69,14 @@ var modalInputFunction = function () {
 // When the user clicks on <span> (x), close the modal
 modalExit.onclick = function() {
   modal.style.display = "none";
+  saveActivites();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    saveActivites();
   }
 }
 
@@ -156,7 +158,6 @@ var getActivities = function() {
   }
     getBoredApiData(radioActVal);
 
-    activityList.addEventListener("click", chooseActivity);
 }
 
 // Function to get activities from bored API
@@ -170,7 +171,6 @@ var getBoredApiData = function(radioActVal) {
     fetch(boredUrl).then(function(response) {
       if(response.ok) {
         response.json().then(function (data){
-          console.log(data);
           activityArr.push(data.activity);
         })
       }
@@ -191,9 +191,10 @@ var displayActivities = function (activityArr) {
     activityItem.textContent = activityArr[i];
     activityItem.className = "act-item"
     activityList.append(activityItem);
-    console.log(activityArr[i]);
   }
-  } 
+  activityList.addEventListener("click", chooseActivity);
+
+} 
 
 // Function to display bored activities on weekday schedule
 var chooseActivity = function(event) {
@@ -213,4 +214,3 @@ calendarDiv.addEventListener("click", divHandler);
 loadActivities();
 
 calendarDiv.addEventListener("click", divHandler);
-

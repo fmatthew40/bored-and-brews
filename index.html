@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,55 +15,63 @@
     <header class="hero">
         <div class="hero-body">
             <h1 class="title">Bored and Brews</h1>
-            <p class="motto">"Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            <p class="motto">Welcome to Bored and Brews! If you have been struggling post-quarantine to regain a sense of normalacy and excitement in your life, then you have come to the right place. Bored and Brews is the app that allows its users to search for activities from a variety of different categories, as well as find the best breweries around your town. By clicking on a specific day of the week below you can search for both activities and breweries in the and then select from each list, which boredom beater and brewery you would like to schedule for that day of the week.</p>
         </div>
     </header>
 
 
     <!--------Containers------->
-    <secion class="container">
+    <section class="container">
 
         <div class="tile is-ancestor">
             <!------calendar-box--->
-            <div id="calendar" class="tile is-vertical is-12">
-                   
+            <div id="calendar" class="is-12">
 
-            <!--------------------->
+
+                <!--------------------->
                 <div class="tile">
 
-                    <div class="tile is-vertical is-4">
+                    <div class="is-12">
                         <div class="tile is-parent">
                             <article class="day tile is-child notification is-primary" id="monday">
                                 <p class="title">Monday</p>
-
-
-
                                 <p class="subtitle">Boredom Beater: <span class="monday-activity"></span></p>
 
                                 <p class="subtitle">Brews: <span class="monday-brews"></span></p>
                             </article>
                         </div>
 
-                        <div class="tile is-parent">
-                            <article class="day tile is-child notification is-primary" id="thursday">
-                                <p class="title">Thursday</p>
+                        <div class="is-12">
+                            <div class="tile is-parent">
+                                <article class="day tile is-child notification is-primary" id="tuesday">
+                                    <p class="title">Tuesday</p>
 
-                                <p class="subtitle">Boredom Beater: <span class="thursday-activity"></span></p>
+                                    <p class="subtitle">Boredom Beater: <span class="tuesday-activity"></span></p>
 
-                                <p class="subtitle">Brews: <span class="thursday-brews"></span></p>
-                            </article>
-                        </div>
-                  </div>
+                                    <p class="subtitle">Brews: <span class="tuesday-brews"></span></p>
+                                </article>
+                            </div>
 
-                    <div class="tile is-vertical is-4">
-                        <div class="tile is-parent">
-                            <article class="day tile is-child notification is-primary" id="tuesday">
-                                <p class="title">Tuesday</p>
+                            <div class="is-12">
+                                <div class="tile is-parent">
+                                    <article class="day tile is-child notification is-primary" id="wednesday">
+                                        <p class="title">Wednesday</p>
+        
+                                        <p class="subtitle">Boredom Beater: <span class="wednesday-activity"></span></p>
+        
+                                        <p class="subtitle">Brews: <span class="wednesday-brews"></span></p>
+                                    </article>
+                                </div>
 
-                                <p class="subtitle">Boredom Beater: <span class="tuesday-activity"></span></p>
+                            <div class="tile is-parent">
+                                <article class="day tile is-child notification is-primary" id="thursday">
+                                    <p class="title">Thursday</p>
 
-                                <p class="subtitle">Brews: <span class="tuesday-brews"></span></p>
-                            </article>
+                                    <p class="subtitle">Boredom Beater: <span class="thursday-activity"></span></p>
+
+                                    <p class="subtitle">Brews: <span class="thursday-brews"></span></p>
+                                </article>
+                            </div>
                         </div>
 
                         <div class="tile is-parent">
@@ -76,16 +85,6 @@
                         </div>
                     </div>
 
-                    <div class="tile is-vertical is-4">
-                        <div class="tile is-parent">
-                            <article class="day tile is-child notification is-primary" id="wednesday">
-                                <p class="title">Wednesday</p>
-
-                                <p class="subtitle">Boredom Beater: <span class="wednesday-activity"></span></p>
-
-                                <p class="subtitle">Brews: <span class="wednesday-brews"></span></p>
-                            </article>
-                        </div>
                         <div class="tile is-parent">
                             <article class="day tile is-child notification is-primary" id="saturday">
                                 <p class="title">Saturday</p>
@@ -110,8 +109,7 @@
 
             </div>
         </div>
-
-    </secion>
+    </section>
 
 
     <!-- MODAL forms for activity and brewery search -->
@@ -127,68 +125,69 @@
                         <h2 class="is-size-3">Activities</h2>
                         <div class="control activity-radio">
                             <label class="radio">
-                              <input type="radio" name="activity" value="cooking">
-                              Cooking
+                                <input type="radio" name="activity" value="cooking">
+                                Cooking
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity" value="diy">
-                              DIY
+                                <input type="radio" name="activity" value="diy">
+                                DIY
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity" value="recreational">
-                              Recreational
+                                <input type="radio" name="activity" value="recreational">
+                                Recreational
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity" value="charity">
-                              Charity
+                                <input type="radio" name="activity" value="charity">
+                                Charity
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity" value="social">
-                              Social
+                                <input type="radio" name="activity" value="social">
+                                Social
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity" value="relaxation">
-                              Relaxation
+                                <input type="radio" name="activity" value="relaxation">
+                                Relaxation
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity" value="education">
-                              Education
+                                <input type="radio" name="activity" value="education">
+                                Education
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity" value="music">
-                              Music
+                                <input type="radio" name="activity" value="music">
+                                Music
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity" value="busywork">
-                              Busywork
+                                <input type="radio" name="activity" value="busywork">
+                                Busywork
                             </label>
-                          </div>
+                        </div>
                     </form>
 
                     <div id="act-list">
-                          <h2>Click on an activity below to add it to your calendar:</h2>
-                          <ol id="activities"></ol>
+                        <h2>Click on an activity below to add it to your calendar:</h2>
+                        <ol id="activities"></ol>
 
                     </div>
                     <div class="field" id="brew-form">
                         <label class="label has-text-left">Enter a city to search for brews near you!</label>
                         <div class="control">
-                          <input id="city" class="input" type="text" placeholder="Tucson">
+                            <input id="city" class="input" type="text" placeholder="Tucson">
                         </div>
                         <div id="brewery-display">
                             <p>Click on a brewery below to add it to calendar:</p>
-                            
+
                             <ol id="breweries"></ol>
                         </div>
                     </div>
                 </div>
-                <div class="columns is-mobile is-centered">
-
-                    <button id="search-bored" class="button is-warning is-large is-inverted column is-4">Defeat Boredom</button>
-                    <button id="search-brews" class="button is-warning is-large is-inverted column is-4"> Get Brews</button>
+                <div class="columns is-mobile is-centered search-btns">
+                    <button id="search-bored" class="button is-warning is-large is-inverted column is-4">Defeat
+                        Boredom</button>
+                    <button id="search-brews" class="button is-warning is-large is-inverted column is-4"> Get
+                        Brews</button>
 
                 </div>
-                
+
             </div>
 
         </div>

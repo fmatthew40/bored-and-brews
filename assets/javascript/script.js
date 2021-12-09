@@ -13,6 +13,7 @@ var timeToMidnight = getTimetoMidnight(now);
 var day = "";
 var activity = "";
 var brew = "";
+
 // get time in miliseconds to set timeout 
 function getTimetoMidnight (now) {
   var mili = now.getMilliseconds();
@@ -24,14 +25,13 @@ function getTimetoMidnight (now) {
   return timetomidnight;
 }
 
-//time out funcition to set interval to clear calendar monday at midnight
-
+//time out function to set interval to clear calendar monday at midnight
 setTimeout(() => {setInterval((today) => {
   var today = now.getDay();
    if (today === 1) {
     activityArray = [];
     localStorage.setItem("activities", JSON.stringify(activityArray));
-    loadActivites();
+    loadActivities();
   }
   else {
     return;
@@ -56,7 +56,6 @@ var setVariables = function (day) {
   activity = document.getElementsByClassName(day + "-activity")[0];
   brew = document.getElementsByClassName(day + "-brews")[0];
 }
-
 
 var modalInputFunction = function () {
     modal.style.display = "block";
@@ -124,17 +123,16 @@ var displaySelectedBrewery = function(event) {
   }
 }
 
-
 // save activities and breweries in local storage
-var saveActivites = function() {
+var saveActivities = function() {
   var arrayObj = {"day": day, "activity": activity.innerHTML, "brew":brew.innerHTML};
   activityArray.push(arrayObj);
   // save object to local storage array
   localStorage.setItem("activities", JSON.stringify(activityArray));
 }
 
-// load activites and breweries from local storage
-var loadActivites = function () {
+// load activities and breweries from local storage
+var loadActivities = function () {
   var storedData = JSON.parse(localStorage.getItem("activities"));
   if (!storedData) {
     activityArray = [];
@@ -148,9 +146,7 @@ var loadActivites = function () {
   }
 }
 
-
-// Function to get activities from bored API
-
+// Function to get values from radio buttons
 var getActivities = function() {
   for(i = 0; i < activitiesRadio.length; i++) {
     var radioValue = activitiesRadio[i];
@@ -163,6 +159,7 @@ var getActivities = function() {
 
 }
 
+// Function to get activities from bored API
 var getBoredApiData = function(radioActVal) {
   activityList.textContent = "";
 
@@ -186,6 +183,7 @@ var getBoredApiData = function(radioActVal) {
   }, 1000);
 }
 
+// Function to display bored API activities in modal
 var displayActivities = function (activityArr) {
   for(i = 0; i < activityArr.length; i++) {
     var activityItem = document.createElement("li");
@@ -197,9 +195,8 @@ var displayActivities = function (activityArr) {
 
 } 
 
-
+// Function to display bored activities on weekday schedule
 var chooseActivity = function(event) {
-
   var chosenAct = event.target
   if(chosenAct.matches(".act-item")) {
     var selectedAct = event.target.textContent;
@@ -213,6 +210,6 @@ searchBrewsBtn.addEventListener("click", getBrews);
 
 calendarDiv.addEventListener("click", divHandler);
 
-loadActivites();
+loadActivities();
 
 calendarDiv.addEventListener("click", divHandler);

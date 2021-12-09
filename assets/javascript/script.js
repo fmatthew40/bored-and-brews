@@ -26,19 +26,26 @@ function getTimetoMidnight (now) {
 }
 
 //time out function to set interval to clear calendar monday at midnight
-setTimeout(() => {setInterval((today) => {
-  var today = now.getDay();
-   if (today === 1) {
-    activityArray = [];
-    localStorage.setItem("activities", JSON.stringify(activityArray));
-    loadActivities();
-  }
-  else {
-    return;
-  }
-}, (24 * 60 * 60 * 1000));
-  
-}, timeToMidnight);
+setTimeout(function() {
+  var clearCalendar = setInterval((today) => {
+    var today = now.getDay();
+    today = 1;
+    console.log('timer');
+     if (today === 1) {
+      activityArray = [];
+      localStorage.setItem("activities", JSON.stringify(activityArray));
+      clearInterval(clearCalendar);
+      return loadActivities();
+    }
+    else {
+      return;
+    }
+  }, 5000);
+}, 300000000000000);
+
+
+
+// (24 * 60 * 60 * 1000)
 
 
 // handler to call modal when a day is clicked
@@ -69,14 +76,12 @@ var modalInputFunction = function () {
 // When the user clicks on <span> (x), close the modal
 modalExit.onclick = function() {
   modal.style.display = "none";
-  saveActivites();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-    saveActivites();
   }
 }
 
@@ -125,11 +130,12 @@ var displaySelectedBrewery = function(event) {
 }
 
 // save activities and breweries in local storage
-var saveActivities = function() {
+var saveActivities = function() { 
   var arrayObj = {"day": day, "activity": activity.innerHTML, "brew":brew.innerHTML};
   activityArray.push(arrayObj);
   // save object to local storage array
   localStorage.setItem("activities", JSON.stringify(activityArray));
+    
 }
 
 // load activities and breweries from local storage
@@ -139,7 +145,9 @@ var loadActivities = function () {
     activityArray = [];
   }
   else {
+    activityArray = [];
     for (var i = 0; i < storedData.length; i++) {
+      activityArray.push(storedData[i]);
       setVariables(storedData[i].day);
       activity.innerHTML = storedData[i].activity;
       brew.innerHTML = storedData[i].brew
@@ -203,6 +211,7 @@ var chooseActivity = function(event) {
     var selectedAct = event.target.textContent;
     activity.innerHTML = selectedAct;
   }
+  saveActivities();
 }
 
 searchBoredBtn.addEventListener("click", getActivities);

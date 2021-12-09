@@ -113,7 +113,6 @@ var displaySelectedBrewery = function(event) {
 
 var getActivities = function() {
   for(i = 0; i < activitiesRadio.length; i++) {
-
     var radioValue = activitiesRadio[i];
 
     if(radioValue.checked) {
@@ -126,34 +125,39 @@ var getActivities = function() {
 }
 
 var getBoredApiData = function(radioActVal) {
-  
+  activityList.textContent = "";
+
   var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
 
-  for(i = 0; i < 5; i++) {
+  var activityArr = []
+  for(i = 0; i < 3; i++) {
     fetch(boredUrl).then(function(response) {
       if(response.ok) {
         response.json().then(function (data){
           console.log(data);
-          //console.log(data.activity);
-          displayActivities(data.activity);
+          activityArr.push(data.activity);
         })
       }
     })
   } 
+  var actTime = setInterval (function() {
+    if(activityArr.length === 3) {
+      displayActivities(activityArr);
+      clearInterval(actTime);
+    }
+  }, 1000);
 }
 
-var displayActivities = function (activity) {
-  //debugger;
-  var activityItem = document.createElement("li");
-  activityItem.textContent = activity;
-  activityItem.className = "act-item"
-  
-  var actListLength = document.getElementsByClassName("act-item");
-  console.log(actListLength.length);
-  if(actListLength.length < 5) {
+var displayActivities = function (activityArr) {
+  for(i = 0; i < activityArr.length; i++) {
+    var activityItem = document.createElement("li");
+    activityItem.textContent = activityArr[i];
+    activityItem.className = "act-item"
     activityList.append(activityItem);
+    console.log(activityArr[i]);
+  }
   } 
-}
+
 
 var chooseActivity = function(event) {
 
@@ -173,10 +177,3 @@ searchBoredBtn.addEventListener("click", getActivities);
 searchBrewsBtn.addEventListener("click", getBrews);
 
 calendarDiv.addEventListener("click", divHandler);
-
-
-//getting repeat activities fix that issue
-//need two search buttons
-//weird lag on boredom api fetching can't exit modal until all load??
-// fixed issue where can now only display five acts but still fetches need this to stop
-// takes a long time to load

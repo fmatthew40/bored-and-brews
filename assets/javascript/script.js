@@ -120,6 +120,7 @@ var displaySelectedBrewery = function(event) {
   var selectedListItem = event.target
   if(selectedListItem.matches(".brew")) {
     brew.innerHTML = selectedListItem.textContent;
+    saveActivities();
   }
 }
 

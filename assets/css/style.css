@@ -375,32 +375,33 @@ form {
         text-align: center;
     }
 
-@media screen and (max-width:500px) {
-    #search-bored {
-        width:56%;
-        margin-right: 16px;
-        margin-top:100px;
+    @media screen and (max-width:500px) {
+        #search-bored {
+            width:56%;
+            margin-right: 16px;
+            margin-top:100px;
+        }
+    
+        #search-brews {
+            width:38%;
+            margin-top:100px;
+            margin-right: 0px;
+        }
+
+        form {
+            height: fit-content;
+        }
+
+        #breweries {
+            margin-bottom: 30px;
+        }
+
+        #act-list h2{
+            margin-top: -145px;
+        }
+
+        .city-label {
+            margin-top: 40px;
+        }
     }
 
-    #search-brews {
-        width:38%;
-        margin-top:100px;
-        margin-right: 0px;
-    }
-
-    form {
-        height: fit-content;
-    }
-
-    #breweries {
-        margin-bottom: 30px;
-    }
-
-    #act-list h2{
-        margin-top: -145px;
-    }
-
-    .city-label {
-        margin-top: 40px;
-    }
-}

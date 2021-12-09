@@ -15,17 +15,32 @@
     border-radius: 13px;
     
 }
+.title h1 {
+    margin:0px;
+}
+.title {
+    text-align: center;
+    color: var(--vino);
+    text-align: top;
+    font-size: 40px;
+    font-style: italic;
+    width:100%;
+    margin: 3%;
+}
 
-.title,
 .subtitle {
     text-align: center;
     color: var(--vino);
     text-align: top;
-    font-size: 30px;
-    font-style: italic;
+    font-size:26px;
     width:100%;
-    margin: 3%;
-    
+}
+
+.motto {
+    text-align:center;
+    font-size: 16px;
+    font-weight:bold;
+
 }
 
 body {
@@ -48,7 +63,7 @@ header {
     width: 100%;
     margin: 2%;
     margin-top: 3%;
-    background-color: var(--meat);
+    background-color: tan;
 }
 
 .hero-body {
@@ -102,7 +117,7 @@ header {
     width: 100%;
 }
 .tile {
-    background-color: var(--meat);
+    background-color: tan;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -117,7 +132,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: top;
-    border-radius: 50%;
+    border-radius: 10px;
     margin: 10%;
 }
 
@@ -156,6 +171,7 @@ header {
     margin-bottom: 7px;
 }
 form {
+    padding:15px;
     margin-bottom: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -172,6 +188,34 @@ form {
 
 .activity-radio label:first-child {
     margin-left: 8px;
+}
+
+#act-list {
+    margin: 20px 30px;
+    font-size: 18px;
+}
+
+#act-list h2 {
+    font-weight:bold;
+}
+
+#activities {
+    display:flex;
+    flex-direction: column;
+    margin:17px;
+}
+.search-btns {
+    display:flex;
+    justify-content: space-around;
+    margin: 20px 0px 5px 0px
+}
+#search-brews {
+    width: 35%;
+}
+
+#search-bored {
+    width: 35%;
+    margin-right: 225px;
 }
   
   /* The Close Button */
@@ -195,9 +239,7 @@ form {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
 }
-
 
 .is-size-3 {
     font-size: medium;
@@ -211,7 +253,7 @@ form {
     margin: 8%;
 }
 form {
-    margin:5%;
+    /* margin:5%; */
     background-color: var(--wood);
 }
 .control .activity-radio{
@@ -229,8 +271,6 @@ form {
     align-items: left;
 }
 .field {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: top;
     color: var(--grey);
@@ -256,44 +296,60 @@ form {
 .columns .is-mobile .is-centered {
     margin-bottom: 8%;
 }
-#search {
-    
-}
 
 /* screen sizes */
 
-@media screen and (max-width:1400x) {
-    .calendar {
-        margin-left: 4%;
+@media screen and (max-width:945px) {
+    form {
+        padding:5px;
+        width: 115%;
+        margin-bottom:200px;
+    }
+    #act-list {
+        font-size: 15px;
+        margin: 5px 6px 0px 25px;
+        padding-left: 6px;
+    }
+
+    .city-label {
+        margin-top: -5px;
     }
 }
 
-@media screen and (max-width:1020px) {
-.container {
-    margin: 6px;
-}
-}
 
-
-
-
-
-@media screen and (max-width:710px) {
+@media screen and (max-width:775px) {
 
     .container {
         margin: 3px;
     }
 
-    #search {
+    /* #search {
         font-size: 4vw!important;
         line-height: 2px;
+    } */
+
+    #search-bored {
+        width:35%;
+        margin-right: 175px;
+        margin-top:100px;
     }
 
+    #search-brews {
+        width:24%;
+        margin-top:100px;
+        margin-right: 35px;
+    }
     
     .activity-radio {
         display: flex;
         flex-flow: row wrap;
         align-items: stretch;
+    }
+
+    form {
+        width:100%;
+        padding: 0px 35px;
+        height:fit-content;
     }
 
     #forms {
@@ -318,3 +374,34 @@ form {
         width: 100%;
         text-align: center;
     }
+
+    @media screen and (max-width:500px) {
+        #search-bored {
+            width:56%;
+            margin-right: 16px;
+            margin-top:100px;
+        }
+    
+        #search-brews {
+            width:38%;
+            margin-top:100px;
+            margin-right: 0px;
+        }
+
+        form {
+            height: fit-content;
+        }
+
+        #breweries {
+            margin-bottom: 30px;
+        }
+
+        #act-list h2{
+            margin-top: -145px;
+        }
+
+        .city-label {
+            margin-top: 40px;
+        }
+    }
+

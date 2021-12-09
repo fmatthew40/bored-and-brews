@@ -206,7 +206,6 @@ var displayActivities = function (activityArr) {
 
 // Function to display bored activities on weekday schedule
 var chooseActivity = function(event) {
-  debugger;
   var chosenAct = event.target
   if(chosenAct.matches(".act-item")) {
     var selectedAct = event.target.textContent;

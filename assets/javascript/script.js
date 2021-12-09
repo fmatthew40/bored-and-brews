@@ -8,9 +8,11 @@ var saturdayDiv = document.querySelector("#saturday");
 var sundayDiv = document.querySelector("#sunday");
 var modal = document.getElementById("modal");
 var activitiesRadio = document.getElementsByName("activity")
+var activityList = document.getElementById("activities");
 var cityInput = document.getElementById("city");
 var breweryList = document.getElementById("breweries");
-var searchBtn = document.getElementById("search");
+var searchBoredBtn = document.getElementById("search-bored");
+var searchBrewsBtn = document.getElementById("search-brews");
 var modalExit = document.getElementsByClassName("close")[0];
 
 
@@ -31,6 +33,13 @@ var modalInputFunction = function (day) {
     // clear modal brewery city search and display
     cityInput.value = "";
     breweryList.textContent = "";
+
+    // clear modal activity search items
+    // need to uncheck radio button (radioValue.uncheck)?
+    // function uncheck() {
+    //   radioValue.checked = false;
+    // }
+    activityList.textContent = "";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -112,6 +121,8 @@ var getActivities = function() {
   }
   }
     getBoredApiData(radioActVal);
+
+    activityList.addEventListener("click", chooseActivity);
 }
 
 var getBoredApiData = function(radioActVal) {
@@ -132,13 +143,16 @@ var getBoredApiData = function(radioActVal) {
 }
 
 var displayActivities = function (activity) {
-  var activityList = document.getElementById("activities");
+  //debugger;
   var activityItem = document.createElement("li");
   activityItem.textContent = activity;
   activityItem.className = "act-item"
-  activityList.append(activityItem);
-
-  activityList.addEventListener("click", chooseActivity);
+  
+  var actListLength = document.getElementsByClassName("act-item");
+  console.log(actListLength.length);
+  if(actListLength.length < 5) {
+    activityList.append(activityItem);
+  } 
 }
 
 var chooseActivity = function(event) {
@@ -154,12 +168,15 @@ var chooseActivity = function(event) {
   }
 }
 
-searchBtn.addEventListener("click", getActivities);
+searchBoredBtn.addEventListener("click", getActivities);
 
-searchBtn.addEventListener("click", getBrews);
+searchBrewsBtn.addEventListener("click", getBrews);
 
 calendarDiv.addEventListener("click", divHandler);
 
 
 //getting repeat activities fix that issue
 //need two search buttons
+//weird lag on boredom api fetching can't exit modal until all load??
+// fixed issue where can now only display five acts but still fetches need this to stop
+// takes a long time to load

@@ -117,7 +117,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: top;
-    border-radius: 50%;
+    border-radius: 20;
     margin: 10%;
 }
 
@@ -189,13 +189,23 @@ form {
     cursor: pointer;
 }
 /* search btn */
-.columns .is-mobile .is-centered {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.button{
+    display: inline-block;
+    box-sizing: border-box;
+    padding:10px;
+    border:1px;
+    margin:20px ;
     align-items: center;
     text-align: center;
-    
+    padding: 10px ;
+   
+}
+.btn-p {
+  
+  
+    width: fit-content;
+  
+    margin-bottom:20px ;
 }
 
 

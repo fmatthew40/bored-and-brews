@@ -1,8 +1,11 @@
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
+var activitiesRadio = document.getElementsByName("activity")
+var activityList = document.getElementById("activities");
 var cityInput = document.getElementById("city");
 var breweryList = document.getElementById("breweries");
-var searchBtn = document.getElementById("search");
+var searchBoredBtn = document.getElementById("search-bored");
+var searchBrewsBtn = document.getElementById("search-brews");
 var modalExit = document.getElementsByClassName("close")[0];
 var activityArray = [];
 var now = new Date();
@@ -61,6 +64,13 @@ var modalInputFunction = function () {
     // clear modal brewery city search and display
     cityInput.value = "";
     breweryList.textContent = "";
+
+    // clear modal activity search items
+    // need to uncheck radio button (radioValue.uncheck)?
+    // function uncheck() {
+    //   radioValue.checked = false;
+    // }
+    activityList.textContent = "";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -143,6 +153,73 @@ var loadActivites = function () {
   }
 }
 
-loadActivites();
-searchBtn.addEventListener("click", getBrews);
+
+// Function to get activities from bored API
+
+var getActivities = function() {
+  for(i = 0; i < activitiesRadio.length; i++) {
+    var radioValue = activitiesRadio[i];
+
+    if(radioValue.checked) {
+      radioActVal = radioValue.value;
+  }
+  }
+    getBoredApiData(radioActVal);
+
+    activityList.addEventListener("click", chooseActivity);
+}
+
+var getBoredApiData = function(radioActVal) {
+  activityList.textContent = "";
+
+  var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
+
+  var activityArr = []
+  for(i = 0; i < 3; i++) {
+    fetch(boredUrl).then(function(response) {
+      if(response.ok) {
+        response.json().then(function (data){
+          console.log(data);
+          activityArr.push(data.activity);
+        })
+      }
+    })
+  } 
+  var actTime = setInterval (function() {
+    if(activityArr.length === 3) {
+      displayActivities(activityArr);
+      clearInterval(actTime);
+    }
+  }, 1000);
+}
+
+var displayActivities = function (activityArr) {
+  for(i = 0; i < activityArr.length; i++) {
+    var activityItem = document.createElement("li");
+    activityItem.textContent = activityArr[i];
+    activityItem.className = "act-item"
+    activityList.append(activityItem);
+    console.log(activityArr[i]);
+  }
+  } 
+
+
+var chooseActivity = function(event) {
+
+  var chosenAct = event.target
+  if(chosenAct.matches(".act-item")) {
+    var selectedAct = event.target.textContent;
+    activity.innerHTML = selectedAct;
+  }
+}
+
+searchBoredBtn.addEventListener("click", getActivities);
+
+searchBrewsBtn.addEventListener("click", getBrews);
+
 calendarDiv.addEventListener("click", divHandler);
+
+loadActivites();
+
+calendarDiv.addEventListener("click", divHandler);
+

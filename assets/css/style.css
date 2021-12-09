@@ -28,10 +28,6 @@
     
 }
 
-
-
-
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--vino);
@@ -55,9 +51,6 @@ header {
     background-color: var(--meat);
 }
 
-header h1 {
-    
-}
 .hero-body {
     background-color: var(--bronze);
     display: flex;

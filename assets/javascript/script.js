@@ -64,24 +64,20 @@ var modalInputFunction = function () {
     // clear modal brewery city search and display
     cityInput.value = "";
     breweryList.textContent = "";
-
-    // clear modal activity search items
-    // need to uncheck radio button (radioValue.uncheck)?
-    // function uncheck() {
-    //   radioValue.checked = false;
-    // }
     activityList.textContent = "";
 }
 
 // When the user clicks on <span> (x), close the modal
 modalExit.onclick = function() {
   modal.style.display = "none";
+  saveActivites();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    saveActivites();
   }
 }
 
@@ -125,7 +121,6 @@ var displaySelectedBrewery = function(event) {
   var selectedListItem = event.target
   if(selectedListItem.matches(".brew")) {
     brew.innerHTML = selectedListItem.textContent;
-    saveActivites();
   }
 }
 
@@ -166,7 +161,6 @@ var getActivities = function() {
   }
     getBoredApiData(radioActVal);
 
-    activityList.addEventListener("click", chooseActivity);
 }
 
 var getBoredApiData = function(radioActVal) {
@@ -179,7 +173,6 @@ var getBoredApiData = function(radioActVal) {
     fetch(boredUrl).then(function(response) {
       if(response.ok) {
         response.json().then(function (data){
-          console.log(data);
           activityArr.push(data.activity);
         })
       }
@@ -199,9 +192,10 @@ var displayActivities = function (activityArr) {
     activityItem.textContent = activityArr[i];
     activityItem.className = "act-item"
     activityList.append(activityItem);
-    console.log(activityArr[i]);
   }
-  } 
+  activityList.addEventListener("click", chooseActivity);
+
+} 
 
 
 var chooseActivity = function(event) {
@@ -222,4 +216,3 @@ calendarDiv.addEventListener("click", divHandler);
 loadActivites();
 
 calendarDiv.addEventListener("click", divHandler);
-

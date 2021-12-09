@@ -299,18 +299,6 @@ form {
 
 /* screen sizes */
 
-@media screen and (max-width:1400x) {
-    .calendar {
-        margin-left: 4%;
-    }
-}
-
-@media screen and (max-width:1020px) {
-.container {
-    margin: 6px;
-}
-}
-
 @media screen and (max-width:945px) {
     form {
         padding:5px;

@@ -57,19 +57,12 @@ var setVariables = function (day) {
   brew = document.getElementsByClassName(day + "-brews")[0];
 }
 
-
 var modalInputFunction = function () {
     modal.style.display = "block";
 
     // clear modal brewery city search and display
     cityInput.value = "";
     breweryList.textContent = "";
-
-    // clear modal activity search items
-    // need to uncheck radio button (radioValue.uncheck)?
-    // function uncheck() {
-    //   radioValue.checked = false;
-    // }
     activityList.textContent = "";
 }
 
@@ -129,7 +122,6 @@ var displaySelectedBrewery = function(event) {
   }
 }
 
-
 // save activities and breweries in local storage
 var saveActivities = function() {
   var arrayObj = {"day": day, "activity": activity.innerHTML, "brew":brew.innerHTML};
@@ -152,7 +144,6 @@ var loadActivities = function () {
     }
   }
 }
-
 
 // Function to get values from radio buttons
 var getActivities = function() {

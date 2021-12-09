@@ -27,25 +27,18 @@ function getTimetoMidnight (now) {
 
 //time out function to set interval to clear calendar monday at midnight
 setTimeout(function() {
-  var clearCalendar = setInterval((today) => {
     var today = now.getDay();
     today = 1;
-    console.log('timer');
-     if (today === 1) {
-      activityArray = [];
-      localStorage.setItem("activities", JSON.stringify(activityArray));
-      clearInterval(clearCalendar);
-      return loadActivities();
+    if (today === 1) {
+    activityArray = [];
+    localStorage.setItem("activities", JSON.stringify(activityArray));
+    location.reload();
     }
-    else {
-      return;
+    else{
+      location.reload();
     }
-  }, 5000);
-}, 300000000000000);
-
-
-
-// (24 * 60 * 60 * 1000)
+    
+}, timeToMidnight);
 
 
 // handler to call modal when a day is clicked

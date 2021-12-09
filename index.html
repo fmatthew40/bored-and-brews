@@ -34,7 +34,7 @@
                         <div class="tile is-parent">
                             <article class="day tile is-child notification is-primary" id="monday">
                                 <p class="title">Monday</p>
-                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Boredom Beater: <span class="monday-activity"></span></p>
                                 <p class="subtitle">Brews: <span class="monday-brews"></span></p>
                             </article>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="tile is-parent">
                             <article class="day tile is-child notification is-primary" id="thursday">
                                 <p class="title">Thursday</p>
-                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Boredom Beater: <span class="thursday-activity"></span></p>
                                 <p class="subtitle">Brews: <span class="thursday-brews"></span></p>
                             </article>
                         </div>
@@ -52,7 +52,7 @@
                         <div class="tile is-parent">
                             <article class="day tile is-child notification is-primary" id="tuesday">
                                 <p class="title">Tuesday</p>
-                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Boredom Beater: <span class="tuesday-activity"></span></p>
                                 <p class="subtitle">Brews: <span class="tuesday-brews"></span></p>
                             </article>
                         </div>
@@ -60,7 +60,7 @@
                         <div class="tile is-parent">
                             <article class=" day tile is-child notification is-primary" id="friday">
                                 <p class="title">Friday</p>
-                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Boredom Beater: <span class="friday-activity"></span></p>
                                 <p class="subtitle">Brews: <span class="friday-brews"></span></p>
                             </article>
                         </div>
@@ -70,14 +70,14 @@
                         <div class="tile is-parent">
                             <article class="day tile is-child notification is-primary" id="wednesday">
                                 <p class="title">Wednesday</p>
-                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Boredom Beater: <span class="wednesday-activity"></span></p>
                                 <p class="subtitle">Brews: <span class="wednesday-brews"></span></p>
                             </article>
                         </div>
                         <div class="tile is-parent">
                             <article class="day tile is-child notification is-primary" id="saturday">
                                 <p class="title">Saturday</p>
-                                <p class="subtitle">Boredom Beater: <span></span></p>
+                                <p class="subtitle">Boredom Beater: <span class="saturday-activity"></span></p>
                                 <p class="subtitle">Brews: <span class="saturday-brews"></span></p>
                             </article>
                         </div>
@@ -87,7 +87,7 @@
                 <div class="tile is-parent">
                     <article class="day tile is-child notification is-primary" id="sunday">
                         <p class="title">Sunday</p>
-                        <p class="subtitle">Boredom Beater: <span></span></p>
+                        <p class="subtitle">Boredom Beater: <span class="sunday-activity"></span></p>
                         <p class="subtitle">Brews: <span class="sunday-brews"></span></p>
                     </article>
                 </div>
@@ -148,22 +148,9 @@
                             </label>
                           </div>
                     </form>
-                    <div class="field" id="part-form">
-                        <label class="label">Number of Participants</label>
-                        <div class="select">
-                            <select>
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
-                              <option>6</option>
-                              <option>7</option>
-                              <option>8+</option>
-                            </select>
-                          </div>
-                          <p>Click on an activity below to add it to your calendar:</p>
-                          <ol id="activities"></ol>
+                    <div class="field" id="activity-display">
+                        <p>Click on an activity below to add it to your calendar:</p>
+                        <ol id="activities"></ol>
                     </div>
                     <div class="field" id="brew-form">
                         <label class="label has-text-left">Enter a city to search for brews near you!</label>
@@ -178,7 +165,8 @@
                     </div>
                 </div>
                 <div class="columns is-mobile is-centered">
-                    <button id="search" class="button is-warning is-large is-inverted column is-12">Search</button>
+
+                    <button id="search" class="button is-warning is-large is-inverted column is-8" >Defeat Boredom and Get Brews</button
                 </div>
                 
             </div>

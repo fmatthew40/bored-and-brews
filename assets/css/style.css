@@ -304,8 +304,11 @@ form {
     }
 
     #search {
-        font-size: 20px!important;
+        font-size: 4vw!important;
+        line-height: 2px;
     }
+
+    
     .activity-radio {
         display: flex;
         flex-flow: row wrap;
@@ -334,7 +337,4 @@ form {
         width: 100%;
         text-align: center;
     }
-   
-    
-  
 }

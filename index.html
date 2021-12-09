@@ -87,62 +87,54 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div id="forms">
-                    <form>
+                    <form name="activityform">
                         <h2 class="is-size-3">Activities</h2>
                         <div class="control activity-radio">
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="cooking" id="cooking" type="radio" name="activity">
                               Cooking
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="diy" id="diy" type="radio" name="activity">
                               DIY
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="recreational" id="recreational" type="radio" name="activity">
                               Recreational
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="charity" id="charity" type="radio" name="activity">
                               Charity
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="social" id="social" type="radio" name="activity">
                               Social
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="relaxation" id="relaxation" type="radio" name="activity">
                               Relaxation
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="education" id="education" type="radio" name="activity">
                               Education
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="music" id="music" type="radio" name="activity">
                               Music
                             </label>
                             <label class="radio">
-                              <input type="radio" name="activity">
+                              <input value="busywork" id="busywork" type="radio" name="activity">
                               Busywork
                             </label>
                           </div>
+                          
                     </form>
+                    <button id="activitySubmit">Submit</button>
                     <div class="field" id="part-form">
-                        <label class="label">Number of Participants</label>
-                        <div class="select">
-                            <select>
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
-                              <option>6</option>
-                              <option>7</option>
-                              <option>8+</option>
-                            </select>
-                          </div>
-                          <p>Click on an activity below to add it to your calendar:</p>
+                        
+                        <ol id="returned-activities"></ol>
+
+
                           <ol id="activities"></ol>
                     </div>
                     <div class="field" id="brew-form">

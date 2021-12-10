@@ -51,6 +51,11 @@ header {
     background-color: var(--meat);
 }
 
+/* navbar */
+.navbar {
+    background-color: var(--indigo);
+}
+
 .hero-body {
     background-color: var(--bronze);
     display: flex;

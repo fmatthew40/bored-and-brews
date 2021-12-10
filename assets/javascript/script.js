@@ -16,7 +16,6 @@ var day = "";
 var activity = "";
 var brew = "";
 
-console.log(loadingAlert);
 // get time in miliseconds to set timeout 
 function getTimetoMidnight (now) {
   var mili = now.getMilliseconds();
@@ -156,11 +155,14 @@ var getActivities = function() {
 
     if(radioValue.checked) {
       radioActVal = radioValue.value;
+      //hide buttons while api is fetching
       searchBoredBtn.style.display = "none";
       searchBrewsBtn.style.display = "none";
+      //display loading alert
       loadingAlert.style.display = "block";
   } else if (!radioValue.checked) {
-    activityAlert.style.display = "block";
+      //alert user to choose a category
+      activityAlert.style.display = "block";
   }
   }
     getBoredApiData(radioActVal);
@@ -171,6 +173,7 @@ var getActivities = function() {
 // Function to get activities from bored API
 var getBoredApiData = function(radioActVal) {
   activityList.textContent = "";
+  //remove alert after activities load
   activityAlert.style.display = "none"
 
   var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
@@ -180,7 +183,6 @@ var getBoredApiData = function(radioActVal) {
     fetch(boredUrl).then(function(response) {
       if(response.ok) {
         response.json().then(function (data){
-          console.log(data);
           activityArr.push(data.activity);
         })
       }
@@ -201,7 +203,6 @@ var displayActivities = function (activityArr) {
     activityItem.textContent = activityArr[i];
     activityItem.className = "act-item"
     activityList.append(activityItem);
-    console.log(activityArr[i]);
   }
   searchBoredBtn.style.display = "block";
   searchBrewsBtn.style.display = "block";

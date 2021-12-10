@@ -2,6 +2,8 @@ var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
 var activitiesRadio = document.getElementsByName("activity")
 var activityList = document.getElementById("activities");
+var activityAlert = document.getElementsByClassName("act-alert")[0];
+var loadingAlert = document.getElementsByClassName("loading")[0];
 var cityInput = document.getElementById("city");
 var breweryList = document.getElementById("breweries");
 var searchBoredBtn = document.getElementById("search-bored");
@@ -14,6 +16,7 @@ var day = "";
 var activity = "";
 var brew = "";
 
+console.log(loadingAlert);
 // get time in miliseconds to set timeout 
 function getTimetoMidnight (now) {
   var mili = now.getMilliseconds();
@@ -147,11 +150,17 @@ var loadActivities = function () {
 
 // Function to get values from radio buttons
 var getActivities = function() {
+  
   for(i = 0; i < activitiesRadio.length; i++) {
     var radioValue = activitiesRadio[i];
 
     if(radioValue.checked) {
       radioActVal = radioValue.value;
+      searchBoredBtn.style.display = "none";
+      searchBrewsBtn.style.display = "none";
+      loadingAlert.style.display = "block";
+  } else if (!radioValue.checked) {
+    activityAlert.style.display = "block";
   }
   }
     getBoredApiData(radioActVal);
@@ -162,6 +171,7 @@ var getActivities = function() {
 // Function to get activities from bored API
 var getBoredApiData = function(radioActVal) {
   activityList.textContent = "";
+  activityAlert.style.display = "none"
 
   var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
 
@@ -193,6 +203,9 @@ var displayActivities = function (activityArr) {
     activityList.append(activityItem);
     console.log(activityArr[i]);
   }
+  searchBoredBtn.style.display = "block";
+  searchBrewsBtn.style.display = "block";
+  loadingAlert.style.display = "none";
   } 
 
 // Function to display bored activities on weekday schedule
@@ -201,6 +214,7 @@ var chooseActivity = function(event) {
   if(chosenAct.matches(".act-item")) {
     var selectedAct = event.target.textContent;
     activity.innerHTML = selectedAct;
+    saveActivities();
   }
 }
 

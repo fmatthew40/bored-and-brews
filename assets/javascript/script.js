@@ -28,7 +28,6 @@ function getTimetoMidnight (now) {
 //time out function to set interval to clear calendar monday at midnight
 setTimeout(function() {
     var today = now.getDay();
-    today = 1;
     if (today === 1) {
     activityArray = [];
     localStorage.setItem("activities", JSON.stringify(activityArray));
@@ -161,28 +160,34 @@ var getActivities = function() {
 
 }
 
+
+var activityArr = [];
 // Function to get activities from bored API
 var getBoredApiData = function(radioActVal) {
   activityList.textContent = "";
 
   var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
 
-  var activityArr = []
-  for(i = 0; i < 3; i++) {
     fetch(boredUrl).then(function(response) {
       if(response.ok) {
         response.json().then(function (data){
-          activityArr.push(data.activity);
-        })
+          while (activityArr.length < 3) {
+            if (activityArr.includes(data.activity)) {
+              return getBoredApiData(radioActVal);
+            }
+            else {
+              activityArr.push(data.activity);
+              return getBoredApiData(radioActVal);
+            }
+          }
+          displayActivities(activityArr);
+        });
       }
+
     })
-  } 
-  var actTime = setInterval (function() {
-    if(activityArr.length === 3) {
-      displayActivities(activityArr);
-      clearInterval(actTime);
-    }
-  }, 1000);
+    .catch(function(error) {
+      displayActivities(acctivityArr);
+    });
 }
 
 // Function to display bored API activities in modal
@@ -193,6 +198,7 @@ var displayActivities = function (activityArr) {
     activityItem.className = "act-item"
     activityList.append(activityItem);
   }
+  activityArr = [];
   activityList.addEventListener("click", chooseActivity);
 
 } 

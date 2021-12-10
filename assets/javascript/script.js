@@ -1,5 +1,6 @@
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
+var errorModal =document.getElementsByClassName("error-modal");
 var activitiesRadio = document.getElementsByName("activity")
 var activityList = document.getElementById("activities");
 var cityInput = document.getElementById("city");
@@ -7,12 +8,14 @@ var breweryList = document.getElementById("breweries");
 var searchBoredBtn = document.getElementById("search-bored");
 var searchBrewsBtn = document.getElementById("search-brews");
 var modalExit = document.getElementsByClassName("close")[0];
+var errorModalExit = document.getElementsByClassName("close-error")[0];
 var activityArray = [];
 var now = new Date();
 var timeToMidnight = getTimetoMidnight(now);
 var day = "";
 var activity = "";
 var brew = "";
+
 
 // get time in miliseconds to set timeout 
 function getTimetoMidnight (now) {
@@ -77,6 +80,21 @@ window.onclick = function(event) {
   }
 }
 
+var errorModal = function () {
+  errorModal.style.display = 'block';
+}
+
+errorModalExit.onclick = function() {
+  console.log("clicked")
+  errorModal.style.display = "none";
+}
+
+// window.onclick = function (event) {
+//   if (event.target == errorModal) {
+//     errorModal.style.display = 'none';
+//   }
+// }
+ 
 // When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
 var getBrews = function() {
   var city = cityInput.value.replace(/ /g,"_");
@@ -95,6 +113,9 @@ var getBrews = function() {
         })
       }
     })
+  .catch(function(error) {
+    errorModal();
+  })
 }
 
 // Function to display breweries in an ordered list under the city search input field 
@@ -186,7 +207,7 @@ var getBoredApiData = function(radioActVal) {
 
     })
     .catch(function(error) {
-      displayActivities(acctivityArr);
+      errorModal();
     });
 }
 

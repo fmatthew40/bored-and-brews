@@ -98,6 +98,7 @@ header {
 }
 .notification.is-primary:hover{
     background-color: var(--wood);
+    cursor:pointer;
 }
 .tile .is-vertical .is-12 {
     display: flex;
@@ -225,6 +226,12 @@ form {
     padding: 5px;
 }
 
+.act-item:hover{
+    color: var(--indigo);
+    background-color: var(--cocao);
+    cursor: pointer;
+}
+
 #activities {
     display:flex;
     flex-direction: column;
@@ -287,15 +294,18 @@ form {
    margin:80% ;
    padding: 7%;
 }
+
 .label {
     color:var(--grey);
 }
+
 .is-size-3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: left;
 }
+
 .field {
     justify-content: center;
     align-items: top;
@@ -303,6 +313,7 @@ form {
     margin:5%;
    
 }
+
 .brew{
     color: var(--meat);
     text-align: center;
@@ -315,6 +326,7 @@ form {
 .brew:hover{
     color: var(--indigo);
     background-color: var(--cocao);
+    cursor: pointer;
 }
 .button {
     margin-bottom: 7%;

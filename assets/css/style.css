@@ -183,7 +183,11 @@ form {
 .activity-radio {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+}
+
+.radio {
+    line-height: 2;
 }
 
 .activity-radio label:first-child {
@@ -195,8 +199,30 @@ form {
     font-size: 18px;
 }
 
+.act-alert {
+    display:none;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.loading {
+    display:none;
+    background-color:var(--bronze);
+    color: white;
+    text-align: center;
+}
+
 #act-list h2 {
     font-weight:bold;
+}
+
+.act-item {
+    color:var(--meat);
+    background-color: rgb(132, 115, 115);
+    text-align: center;
+    margin-bottom: 5%;
+    padding: 5px;
 }
 
 #activities {
@@ -216,7 +242,7 @@ form {
 #search-bored {
     width: 35%;
     margin-right: 225px;
-}
+}    
   
   /* The Close Button */
   .close {
@@ -343,7 +369,7 @@ form {
     .activity-radio {
         display: flex;
         flex-flow: row wrap;
-        align-items: stretch;
+        align-items: flex-start;
     }
 
     form {

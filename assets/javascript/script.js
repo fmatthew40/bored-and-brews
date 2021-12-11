@@ -1,6 +1,28 @@
+const GalEl = document.querySelector('.Gal');
+const lbtn = document.querySelector('#left');
+const rbtn = document.querySelector('#right');
+const galimg = document.querySelector('.Gimages img')
 
-const myCarousel = document.querySelector('#myCarousel')
-const carousel = new mdb.Carousel(myCarousel)
+let countP = 1;
+let size = GalEl[0].clientWidth;
+
+GalEl.style.transform = 'translateX(' + (-size * counter) + 'px';
+rbtn.addEventListener('click', function() {
+  if(counter <= 0) {return }
+  GalEl.style.transition = "transform 0.8s ease-in-out"; 
+  counter++;
+console.log(counter);
+
+    GalEl.style.transform = 'size(' + (-size * counter) + 'px)' ;
+  })
+
+  lbtn.addEventListener('click', function() {
+    GalEl.style.transition = "transform 0.8s ease-in-out";
+    counter--;
+    GalEl.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  })
+
+
 
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
@@ -219,7 +241,7 @@ var displayActivities = function (activityArr) {
 }
   activityList.addEventListener("click", chooseActivity);
 
-} 
+
 
 // Function to display bored activities on weekday schedule
 var chooseActivity = function (event) {

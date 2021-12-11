@@ -77,17 +77,16 @@ header {
     align-items: center;
   width: 100%;
     margin-top: 20px;
+    margin-bottom: ;
 }
 
 
 /*gallery*/
 
-.jumbotrom .gallery {
+{
     margin-top: 100px;
-    margin-bottom: 100px;
+   
 }
-
-
 
 
 /* Containers */
@@ -95,6 +94,48 @@ header {
    
    border-bottom-left-radius: 0px;
    border-bottom-right-radius: 0px;
+}
+
+.Gal{
+    display:flex;
+    align-items: center;
+    position: relative;
+    margin: 2rem auto;
+    width:300px;
+    overflow: hidden;
+
+}
+
+.Gimages {
+    display: flex;
+    transform: translate(0);
+    transition: transform 0.25s;
+    height: 500px;
+
+}
+
+img {
+
+}
+.pbtn {
+    z-index: 1;
+    border:solid 20px ;
+    border-color: var(--vino);
+    cursor:pointer;
+    position: absolute;
+    font-size: 2rem;
+    border-radius: 50%;
+    width:10px;
+}
+.pbtn:hover {
+    border-color: var(--grey);
+}
+.left-btn {
+    left:5px;
+
+}
+.right-btn {
+    right:5px;
 }
 
 .container {

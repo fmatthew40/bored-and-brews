@@ -1,3 +1,7 @@
+
+const myCarousel = document.querySelector('#myCarousel')
+const carousel = new mdb.Carousel(myCarousel)
+
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
 var activitiesRadio = document.getElementsByName("activity")

@@ -214,8 +214,7 @@ var displayActivities = function (activityArr) {
   loadingAlert.style.display = "none";
 }
   activityList.addEventListener("click", chooseActivity);
-
-} 
+ 
 
 // Function to display bored activities on weekday schedule
 var chooseActivity = function (event) {

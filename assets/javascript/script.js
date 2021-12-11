@@ -72,12 +72,14 @@ var modalInputFunction = function () {
 // When the user clicks on <span> (x), close the modal
 modalExit.onclick = function () {
   modal.style.display = "none";
+  saveActivites();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    saveActivites();
   }
 }
 
@@ -169,6 +171,7 @@ var getActivities = function () {
   getBoredApiData(radioActVal);
 
   activityList.addEventListener("click", chooseActivity);
+
 }
 
 // Function to get activities from bored API
@@ -180,10 +183,11 @@ var getBoredApiData = function (radioActVal) {
   var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
 
   var activityArr = []
-  for (i = 0; i < 3; i++) {
-    fetch(boredUrl).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
+
+  for(i = 0; i < 3; i++) {
+    fetch(boredUrl).then(function(response) {
+      if(response.ok) {
+        response.json().then(function (data){
           activityArr.push(data.activity);
         })
       }
@@ -209,6 +213,9 @@ var displayActivities = function (activityArr) {
   searchBrewsBtn.style.display = "block";
   loadingAlert.style.display = "none";
 }
+  activityList.addEventListener("click", chooseActivity);
+
+} 
 
 // Function to display bored activities on weekday schedule
 var chooseActivity = function (event) {
@@ -229,4 +236,3 @@ calendarDiv.addEventListener("click", divHandler);
 loadActivities();
 
 calendarDiv.addEventListener("click", divHandler);
-

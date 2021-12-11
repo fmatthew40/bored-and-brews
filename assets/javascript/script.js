@@ -72,14 +72,14 @@ var modalInputFunction = function () {
 // When the user clicks on <span> (x), close the modal
 modalExit.onclick = function () {
   modal.style.display = "none";
-  saveActivites();
+  saveActivities();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
-    saveActivites();
+    saveActivities();
   }
 }
 

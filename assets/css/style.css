@@ -98,6 +98,7 @@ header {
 }
 .notification.is-primary:hover{
     background-color: var(--wood);
+    cursor:pointer;
 }
 .tile .is-vertical .is-12 {
     display: flex;
@@ -183,7 +184,11 @@ form {
 .activity-radio {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+}
+
+.radio {
+    line-height: 2;
 }
 
 .activity-radio label:first-child {
@@ -195,8 +200,36 @@ form {
     font-size: 18px;
 }
 
+.act-alert {
+    display:none;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.loading {
+    display:none;
+    background-color:var(--bronze);
+    color: white;
+    text-align: center;
+}
+
 #act-list h2 {
     font-weight:bold;
+}
+
+.act-item {
+    color:var(--meat);
+    background-color: rgb(132, 115, 115);
+    text-align: center;
+    margin-bottom: 5%;
+    padding: 5px;
+}
+
+.act-item:hover{
+    color: var(--indigo);
+    background-color: var(--cocao);
+    cursor: pointer;
 }
 
 #activities {
@@ -216,7 +249,7 @@ form {
 #search-bored {
     width: 35%;
     margin-right: 225px;
-}
+}    
   
   /* The Close Button */
   .close {
@@ -261,15 +294,18 @@ form {
    margin:80% ;
    padding: 7%;
 }
+
 .label {
     color:var(--grey);
 }
+
 .is-size-3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: left;
 }
+
 .field {
     justify-content: center;
     align-items: top;
@@ -277,6 +313,7 @@ form {
     margin:5%;
    
 }
+
 .brew{
     color: var(--meat);
     text-align: center;
@@ -289,6 +326,7 @@ form {
 .brew:hover{
     color: var(--indigo);
     background-color: var(--cocao);
+    cursor: pointer;
 }
 .button {
     margin-bottom: 7%;
@@ -347,7 +385,7 @@ form {
     .activity-radio {
         display: flex;
         flex-flow: row wrap;
-        align-items: stretch;
+        align-items: flex-start;
     }
 
     form {

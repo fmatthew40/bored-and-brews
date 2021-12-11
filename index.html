@@ -39,7 +39,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="p-container" href="#Gal">Gallery</a>
+                            <a class="p-container" href="#gallery">Gallery</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -72,20 +72,31 @@
 
         <!--gallery-->
 
-<section  class="Gal">
+<section id="gallery" class="Gal">
 <div  class="Gimages">
 
-    <button type="button" id="left" class="pbtn left-btn"></button>
-    <img src="https://source.unsplash.com/random/100/?food" alt="">
-    <img src="https://source.unsplash.com/random/100/?book" alt="">
-    <img src="https://source.unsplash.com/random/100/?travel" alt="">
-    <img src="https://source.unsplash.com/random/100/?sport" alt="">
-    <img src="https://source.unsplash.com/random/100/?music" alt="">
-    <img src="https://source.unsplash.com/random/100/?drinks" alt="">
-    <img src="https://source.unsplash.com/random/100/?art" alt="">
-    <img src="https://source.unsplash.com/random/100/?game" alt="">
-    <img src="https://source.unsplash.com/random/100/?pets" alt="">
-   <button type="button" id="right" class="pbtn right-btn"></button>
+
+    <img src="https://source.unsplash.com/random/100/?food" alt="random food">
+    <img src="https://source.unsplash.com/random/100/?book" alt="random book">
+    <img src="https://source.unsplash.com/random/100/?travel" alt="random travel picture">
+    <img src="https://source.unsplash.com/random/100/?sport" alt="random sport">
+    <img src="https://source.unsplash.com/random/100/?music" alt="random music">
+    <img src="https://source.unsplash.com/random/100/?drinks" alt="random drink">
+    <img src="https://source.unsplash.com/random/100/?art" alt="random art">
+    <img src="https://source.unsplash.com/random/100/?game" alt="random game">
+    <img src="https://source.unsplash.com/random/100/?pets" alt="random pets">
+    <img src="https://source.unsplash.com/random/100/?food" alt="random food">
+    <img src="https://source.unsplash.com/random/100/?book" alt="random book">
+    <img src="https://source.unsplash.com/random/100/?travel" alt="random travel picture">
+    <img src="https://source.unsplash.com/random/100/?sport" alt="random sport">
+    <img src="https://source.unsplash.com/random/100/?music" alt="random music">
+    <img src="https://source.unsplash.com/random/100/?drinks" alt="random drink">
+    <img src="https://source.unsplash.com/random/100/?art" alt="random art">
+    <img src="https://source.unsplash.com/random/100/?game" alt="random game">
+    <img src="https://source.unsplash.com/random/100/?pets" alt="random pets">
+ 
+ 
+   
 
 
 </div>
@@ -191,57 +202,72 @@
     </section>
 
 
-    <!-- MODAL forms for activity and brewery search -->
+    <!----------------------- MODAL SECTION---------------------->
     <section>
-        <!-- The Modal -->
+        <!-- The Modal ---------------------------------->
         <div id="modal" class="modal">
-
-            <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
+            <!-- Modal content ---------------------->
+            
+
+                <!--forms in modal-------------->
+
                 <div id="forms">
+
+                    <!--activities----->
                     <form>
-                        <h2 class="is-size-3">Activities</h2>
+                        <h2 class="act-title">Activities</h2>
+                        <!---activities radio btns -->
                         <div class="control activity-radio">
                             <label class="radio">
-                                <input type="radio" name="activity" value="cooking">
-                                Cooking
+                            <input type="radio" name="activity" value="cooking">
+                            Cooking
                             </label>
+
                             <label class="radio">
-                                <input type="radio" name="activity" value="diy">
-                                DIY
+                            <input type="radio" name="activity" value="diy">
+                             DIY
                             </label>
+
                             <label class="radio">
-                                <input type="radio" name="activity" value="recreational">
-                                Recreational
+                            <input type="radio" name="activity" value="recreational">
+                             Recreational
                             </label>
+
                             <label class="radio">
-                                <input type="radio" name="activity" value="charity">
-                                Charity
+                            <input type="radio" name="activity" value="charity">
+                            Charity
                             </label>
+
                             <label class="radio">
-                                <input type="radio" name="activity" value="social">
-                                Social
+                            <input type="radio" name="activity" value="social">
+                            Social
                             </label>
+
                             <label class="radio">
-                                <input type="radio" name="activity" value="relaxation">
-                                Relaxation
+                            <input type="radio" name="activity" value="relaxation">
+                             Relaxation
                             </label>
+
                             <label class="radio">
-                                <input type="radio" name="activity" value="education">
-                                Education
+                            <input type="radio" name="activity" value="education">
+                            Education
                             </label>
+
                             <label class="radio">
-                                <input type="radio" name="activity" value="music">
-                                Music
+                            <input type="radio" name="activity" value="music">
+                            Music
                             </label>
+
                             <label class="radio">
-                                <input type="radio" name="activity" value="busywork">
-                                Busywork
+                            <input type="radio" name="activity" value="busywork">
+                            Busywork
                             </label>
+
                         </div>
                     </form>
-
+                  <!----activities list loading area-->
                     <div id="act-list">
                         <h2>Click on an activity below to add it to your calendar:</h2>
                         <ol id="activities">
@@ -249,36 +275,39 @@
                         <p class="act-alert">Please Select An Activity Category</p>
                         <p class="loading">Loading Activities Please Wait...</p>
                     </div>
+
+                
+                    <!--brew form-->
                     <div class="field" id="brew-form">
-                        <label class="label has-text-left">Enter a city to search for brews near you!</label>
-                        <div class="control">
-                            <input id="city" class="input" type="text" placeholder="Tucson">
-                        </div>
-                        <div id="brewery-display">
-                            <p>Click on a brewery below to add it to calendar:</p>
+                          <label class="label has-text-left">Enter a city to search for brews near you!</label>
+                          <div class="control">
+                          <input id="city" class="input" type="text" placeholder="Tucson">
+                          </div>
+
+                          <div id="brewery-display">
+                          <p>Click on a brewery below to add it to calendar:</p>
 
                             <ol id="breweries"></ol>
+
+                             <!--search btns-->
+                        <div class="f-btns">
+                            <button id="search-bored" class="button is-warning is-small is-inverted column is-8">Kill
+                                Boredom<i class="fas fa-umbrella-beach"></i></button>
+        
+                            <button id="search-brews" class="button is-warning is-small is-inverted column is-4"> Get
+                                Brews<i class="fas fa-cocktail"></i></button>
                         </div>
+                        </div>
+                       
+
                     </div>
-                </div>
-                <div class="columns is-mobile is-centered search-btns">
-                    <button id="search-bored" class="button is-warning is-large is-inverted column is-4">Defeat
-                        Boredom</button>
-                    <button id="search-brews" class="button is-warning is-large is-inverted column is-4"> Get
-                        Brews</button>
-                <div class="columns is-mobile is-centered">
+               
+                </div><!--forms end---------------------------->
+            </div><!--modal content end----->
+         </div><!--modal end----------->
+ </section><!-- MODAL SECTION END -->
 
-                    <button id="search-bored" class="button is-warning is-large is-inverted column is-6"><i
-                            class="fas fa-umbrella-beach"></i><span class="column is-2"></span> </button>
-                    <button id="search-brews" class="button is-warning is-large is-inverted column is-6"><i
-                            class="fas fa-cocktail"></i><span class="column is-2"></span></button>
 
-                </div>
-
-            </div>
-
-        </div>
-    </section>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

@@ -51,6 +51,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    border-radius: 0;
 }
 
 /* Header */
@@ -97,21 +98,24 @@ header {
 }
 
 .Gal{
+    overflow-x:scroll ;
+    overflow-y: hidden;
     display:flex;
     align-items: center;
     position: relative;
     margin: 2rem auto;
-    width:300px;
-    overflow: hidden;
+    width:60%;
+    
 
 }
 
 .Gimages {
     display: flex;
-    transform: translate(0);
-    transition: transform 0.25s;
-    height: 500px;
 
+
+    width: 100%;
+
+    height: 500px;
 }
 
 img {
@@ -206,16 +210,19 @@ img {
     color: var(--vino);
 }
 
-/* The Modal (background) */
+/* The Modal (background) ------------------------*/
 .modal {
-    display: none; 
+   
     position: fixed; 
+    display: flex;
+    align-items: center;
+    padding-bottom: 100px;
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow:scroll; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     color: var(--bronze);
@@ -225,47 +232,79 @@ img {
 /* Modal Content/Box */
 .modal-content {
     background-color: var(--vino);
-    margin: 15% auto;
+    margin-top:20% ;
     padding: 8px;
-    border: 1px solid #888;
+    border: 5px var(--bronze);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width:80%;
+    width:70%;
+    height: 100%;
+}
+/* The Close Button */
+.close {
+    color: var(--bronze);
+text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    width:100%;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #forms {
-    display: grid;
-    grid-template-columns: 20% 40% 40%;
-    margin-bottom: 7px;
-}
-form {
-    padding:15px;
-    margin-bottom: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 80%;
+}
+form {
+    padding:15px;
+    width: 80%;
+    margin-top: 1%;
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    display: row;
+   
+}
+.act-title {
+    width:100%;
+    align-items: center;
+    text-align: center;
 }
 
 .activity-radio {
     display: flex;
-    flex-direction: column;
+    flex-direction:row;
     align-items: flex-start;
 }
 
-.radio {
+.radio input {
+    align-items: center;
     line-height: 2;
+    
 }
-
+form label .radio{
+align-items: center;
+}
 .activity-radio label:first-child {
     margin-left: 8px;
 }
 
 #act-list {
-    margin: 20px 30px;
+    margin: 8px 10px;
     font-size: 18px;
 }
 
@@ -283,6 +322,10 @@ form {
     text-align: center;
 }
 
+#act-list {
+    width:80%;
+    text-align: center;
+}
 #act-list h2 {
     font-weight:bold;
 }
@@ -306,34 +349,35 @@ form {
     flex-direction: column;
     margin:17px;
 }
-.search-btns {
-    display:flex;
-    justify-content: space-around;
-    margin: 20px 0px 5px 0px
+.columns .is-mobile .is-centered .search-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
+
+.f-btns {
+    align-items: center;
+    display: row;
+  
+    text-align: center;
+}
+
 #search-brews {
     width: 35%;
+    padding:7px;
+    align-items: center;
 }
 
 #search-bored {
     width: 35%;
-    margin-right: 225px;
+   padding:7px;
+  
+    align-items: center;
 }    
   
-  /* The Close Button */
-  .close {
-    color: var(--bronze);
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
   
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 /* search btn */
 .button{
     display: inline-block;
@@ -381,7 +425,8 @@ form {
     justify-content: center;
     align-items: top;
     color: var(--grey);
-    margin:5%;
+    margin:0 10% 0 10;
+   
    
 }
 

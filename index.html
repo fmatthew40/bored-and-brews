@@ -66,7 +66,8 @@
 
         <div class="hero-body">
             <h1 class="title">Bored and Brews</h1>
-            <p class="motto">Welcome to Bored and Brews! If you have been struggling post-quarantine to regain a sense of normalacy and excitement in your life, then you have come to the right place. Bored and Brews is the app that allows its users to search for activities from a variety of different categories, as well as find the best breweries around your town. By clicking on a specific day of the week below you can search for both activities and breweries in the and then select from each list, which boredom beater and brewery you would like to schedule for that day of the week.</p>
+
+            <p class="motto">Welcome to Bored and Brews! If you have been struggling post-quarantine to regain a sense of normalacy and excitement in your life, then you have come to the right place. Bored and Brews is the app that allows its users to search for activities from a variety of different categories, as well as find the best breweries around your town. By clicking on a specific day of the week, you can search for activities and breweries. Then you can add the activity and brewery into your weekly schedule.</p>
         </div>
 
         <!------gallery------>
@@ -325,8 +326,10 @@ data-mdb-ride="carousel"
 
                     <div id="act-list">
                         <h2>Click on an activity below to add it to your calendar:</h2>
-                        <ol id="activities"></ol>
-
+                        <ol id="activities">
+                        </ol>
+                        <p class="act-alert">Please Select An Activity Category</p>
+                        <p class="loading">Loading Activities Please Wait...</p>
                     </div>
                     <div class="field" id="brew-form">
                         <label class="label has-text-left">Enter a city to search for brews near you!</label>

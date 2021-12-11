@@ -116,6 +116,7 @@ header {
 }
 .notification.is-primary:hover{
     background-color: var(--wood);
+    cursor:pointer;
 }
 
 .tile .is-ancestor {
@@ -211,7 +212,11 @@ form {
 .activity-radio {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+}
+
+.radio {
+    line-height: 2;
 }
 
 .activity-radio label:first-child {
@@ -223,8 +228,36 @@ form {
     font-size: 18px;
 }
 
+.act-alert {
+    display:none;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.loading {
+    display:none;
+    background-color:var(--bronze);
+    color: white;
+    text-align: center;
+}
+
 #act-list h2 {
     font-weight:bold;
+}
+
+.act-item {
+    color:var(--meat);
+    background-color: rgb(132, 115, 115);
+    text-align: center;
+    margin-bottom: 5%;
+    padding: 5px;
+}
+
+.act-item:hover{
+    color: var(--indigo);
+    background-color: var(--cocao);
+    cursor: pointer;
 }
 
 #activities {
@@ -244,7 +277,7 @@ form {
 #search-bored {
     width: 35%;
     margin-right: 225px;
-}
+}    
   
   /* The Close Button */
   .close {
@@ -291,15 +324,18 @@ form {
    margin:80% ;
    padding: 7%;
 }
+
 .label {
     color:var(--grey);
 }
+
 .is-size-3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: left;
 }
+
 .field {
     justify-content: center;
     align-items: top;
@@ -307,6 +343,7 @@ form {
     margin:5%;
    
 }
+
 .brew{
     color: var(--meat);
     text-align: center;
@@ -319,6 +356,7 @@ form {
 .brew:hover{
     color: var(--indigo);
     background-color: var(--cocao);
+    cursor: pointer;
 }
 .button {
     margin-bottom: 7%;
@@ -376,21 +414,25 @@ footer {
     } */
 
     #search-bored {
-        width:35%;
-        margin-right: 175px;
-        margin-top:100px;
+        margin-right: 5%;
+        margin-top:-100px;
+        width: fit-content; 
+    }
+
+    #act-list {
+        margin-right: auto;
+        margin-left: auto;
     }
 
     #search-brews {
-        width:24%;
-        margin-top:100px;
-        margin-right: 35px;
+        margin-top:-100px;
+        width: fit-content;
     }
     
     .activity-radio {
         display: flex;
         flex-flow: row wrap;
-        align-items: stretch;
+        align-items: flex-start;
     }
 
     form {
@@ -402,8 +444,8 @@ footer {
     #forms {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 50% 25% 25%;
-        margin: 5%;
+        grid-template-rows: 20% 20% 25%;
+        margin: 1%;
     }
     .field {
         margin: 2%;
@@ -421,3 +463,78 @@ footer {
         width: 100%;
         text-align: center;
     }
+
+    @media screen and (max-width:540px) {
+        #search-bored {
+            width:fit-content;
+            margin-right: 8px;
+            margin-top:-100px;
+        }
+    
+        #search-brews {
+            width:fit-content;
+            margin-top:-100px;
+            margin-right: 0px;
+        }
+
+    #forms {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 22% 23% 25%;
+        margin: 1%;
+    }
+
+        form {
+            height: fit-content;
+        }
+
+        #breweries {
+            margin-bottom: 30px;
+        }
+
+        #act-list h2{
+            margin-top: 8px;
+        }
+
+        .city-label {
+            margin-top: 40px;
+        }
+    }
+
+    @media screen and (max-width:405px) {
+        #search-bored {
+            width:fit-content;
+            margin-top:-100px;
+        }
+    
+        #search-brews {
+            width:fit-content;
+            margin-top:-35px;
+            margin-right: 30px;
+            margin-left: -170px;
+        }
+
+        form {
+            height: fit-content;
+        }
+
+        #forms {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 22% 27% 25%;
+            margin: 1%;
+        }
+
+        #breweries {
+            margin-bottom: 30px;
+        }
+
+        #act-list h2{
+            margin-top: 25px;
+        }
+
+        .city-label {
+            margin-top: 40px;
+        }
+    }
+

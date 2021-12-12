@@ -12,37 +12,14 @@ var searchBrewsBtn = document.getElementById("search-brews");
 var modalExit = document.getElementsByClassName("close")[0];
 var errorModalExit = document.getElementsByClassName("close-error")[0];
 var activityArray = [];
-var now = new Date();
-var timeToMidnight = getTimetoMidnight(now);
 var day = "";
 var activity = "";
 var brew = "";
-var cleared = false;
-
-// get time in miliseconds to set timeout 
-function getTimetoMidnight(now) {
-  var mili = now.getMilliseconds();
-  var sec = now.getSeconds() * 1000;
-  var min = now.getMinutes() * 60 * 1000;
-  var hour = now.getHours() * 60 * 60 * 1000;
-  var timeinMil = mili + sec + min + hour;
-  var timetomidnight = (24 * 60 * 60 * 1000) - timeinMil;
-  return timetomidnight;
-}
-
-//time out function to set interval to clear calendar monday at midnight if browser is left open.
-setTimeout(function() {
-    if (now.getDay() === 1) {
-    activityArray = [];
-    localStorage.setItem("activities", JSON.stringify(activityArray));
-    location.reload();
-    }
-    else{
-      location.reload();
-    }
-    
-}, timeToMidnight);
-
+var clearData = {"date": "", "cleared": ""};
+var today = new Date();
+today.setDate(today.getDate());
+var dateseven = new Date();
+dateseven.setDate(dateseven.getDate() + 7);
 
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
@@ -161,23 +138,33 @@ var saveActivities = function() {
 // load activities and breweries from local storage
 var loadActivities = function () {
   var storedData = JSON.parse(localStorage.getItem("activities"));
-  cleared = JSON.parse(localStorage.getItem("cleared"));
+  clearData = JSON.parse(localStorage.getItem("cleared"));
+  if (!clearData) {
+    clearData = {
+      "date":  dateseven,
+      "cleared": false
+    }
+    localStorage.setItem("cleared", JSON.stringify(clearData));
+  }
   activityArray = [];
   if (!storedData) {
     return;
   }
   else { 
-    // check if it's monday and calandar needs to be cleared
-    if (now.getDay() === 1 && !cleared) {
+    clearData.date = Date.parse(clearData.date);
+    // check if it's been more than seven days from last clear and hasn't been cleared, then calandar needs to be cleared
+    if (today >= clearData.date && !clearData.cleared) {
       localStorage.setItem("activities", JSON.stringify(activityArray));
-      cleared = true;
-      localStorage.setItem("cleared", JSON.stringify(cleared));
+      clearData = {"date": dateseven, "cleared": true};      
+      localStorage.setItem("cleared", JSON.stringify(clearData));
       return loadActivities();
-    }
-    // reset cleared on any day that is not monday
-    else if (now.getDay() !== 1) {
-      cleared = false
-      localStorage.setItem("cleared", JSON.stringify(cleared));
+    } 
+    // reset cleardata cleared value to false when the date is less than seven days from last cleared
+    else if (today < clearData.date && clearData.cleared) {
+      console.log(today < clearData.date);
+      clearData.cleared = false;
+      localStorage.setItem("cleared", JSON.stringify(clearData));
+      console.log(clearData);
     }
     for (var i = 0; i < storedData.length; i++) {
       activityArray.push(storedData[i]);

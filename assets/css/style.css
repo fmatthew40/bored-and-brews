@@ -327,6 +327,7 @@ align-items: center;
     color: white;
     text-align: center;
     width: 100%;
+    margin-bottom:5% ;
 }
 
 #act-list {
@@ -352,7 +353,7 @@ align-items: center;
     text-align: center;
     margin-bottom: 5%;
     padding: 5px;
-    width:100%
+    width:80%;
 }
 
 .act-item:hover{
@@ -363,6 +364,7 @@ align-items: center;
 
 #activities {
     display:flex;
+    justify-content: center;
     flex-direction: row;
     margin:17px;
    
@@ -416,6 +418,7 @@ align-items: center;
     justify-content: center;
     align-items: center;
     margin: 8%;
+    width: 100%;
 }
 form {
  margin:5%; 
@@ -431,12 +434,13 @@ form {
     color:var(--grey);
 }
 
-.is-size-3 {
+
+/* .is-size-3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: left;
-}
+} */
 
 .field {
     justify-content: center;
@@ -464,8 +468,16 @@ form {
 .breweries {
     width: 100%;
 }
+.brewery-display {
+    text-align: center;
+    
+    
+}
 .field p {
     width: 100%;
+    text-align: center;
+    color: var(--bronze);
+    margin-bottom: 5%;
 } 
 .columns .is-mobile .is-centered {
     margin-bottom: 8%;

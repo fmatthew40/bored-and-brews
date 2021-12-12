@@ -239,19 +239,18 @@
     <section>
         <!-- The Modal ---------------------------------->
         <div id="modal" class="modal">
+            <!-- Modal content wrap forms---------------------->
             <div class="modal-content">
                 <span class="close">&times;</span>
-            <!-- Modal content ---------------------->
             
-
-                <!--forms in modal-------------->
+                <!--holds all forms in modal-------------->
 
                 <div id="forms">
 
-                    <!--activities----->
+                    <!--activities options before showing hidden lists----->
                     <form>
                         <h2 class="act-title">Activities</h2>
-                        <!---activities radio btns -->
+                        <!---select activities radio btns -->
                         <div class="control activity-radio">
                             <label class="radio">
                             <input type="radio" name="activity" value="cooking">
@@ -300,43 +299,52 @@
 
                         </div>
                     </form>
-                  <!----activities list loading area-->
+
+                  <!----All texts for lists-->
                     <div id="act-list">
+                       
+                        <!--hidden list of activities to pick-->
+                    <div class="hid-act-list-text"> 
                         <p>Click on an activity below to add it to your calendar:</p>
-                        <p>Click on a brewery below to add it to calendar:</p>
-                        
-                        
+                        <ol id="activities">  </ol>
                     </div>
+                    </div>
+
+                    <!-- show alert if nothing was chosen / show loading when it loads -->
                     <p class="act-alert">Please Select An Activity Category</p>
                     <p class="loading">Loading Activities Please Wait...</p>
-                    <ol id="activities">
-                    </ol>
-                    <!--brew form-->
-                    <div class="field" id="brew-form">
-                          
 
-                      <div id="brewery-display">
-                          
-                            
-                            <ol id="breweries"></ol>
-                          
+                    
 
-
-                             <!--search btns-->
-                             <label class="label has-text-left">Enter a city to search for brews near you!</label>
-                          <div class="control">
-                          <input id="city" class="input" type="text" placeholder="Tucson">
-                          </div>
-
-                           <div class="sbtns">
-                            <button id="search-bored" class="f-btns button ">Kill
-                                Boredom<i class="fas fa-umbrella-beach"></i></button>
-        
-                            <button id="search-brews" class="f-btns button "> Get
-                                Brews<i class="fas fa-cocktail"></i></button>
-                          </div>
+                    <!--hidden brew form-->
+                    <div class="field" id="brew-form">     
+                     <!--hidden list of brews to pick-->
+                        <div id="brewery-display"> 
+                            <p>Click on a brewery below to add it to calendar:</p>   
+                             <ol id="breweries"></ol>
                         </div>
                        
+                            <!-- Search city and search btns -->
+                             <!--search city-->
+                             <label class="label has-text-left">Enter a city to search for brews near you!</label>
+                             <div   class="control">
+                             <input id="city" 
+                                    class="input" 
+                                    type="text" 
+                                    placeholder="Tucson">
+                             </div>
+                            <!--search bored-->
+                            <div class="sbtns">
+                                <button id="search-bored" class="f-btns button ">
+                                Kill Boredom
+                                <i  class="fas fa-umbrella-beach"></i>
+                                </button>
+                            <!--search brews--->
+                                <button id="search-brews" class="f-btns button ">
+                                Get Brews
+                                <i class="fas fa-cocktail"></i>
+                                </button>
+                            </div>
 
                     </div>
                

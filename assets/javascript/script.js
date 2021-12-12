@@ -118,14 +118,22 @@ var getBrews = function () {
 
 // Function to display breweries in an ordered list under the city search input field 
 var displayBreweries = function (breweries) {
-
-  for (i = 0; i < breweries.length; i++) {
-    var breweryName = document.createElement("li");
-    breweryName.className = "brew";
-    breweryName.id = "brew" + i;
-    breweryName.textContent = breweries[i].name;
-    breweryList.append(breweryName);
+  if (breweries.length === 0) {
+    var noBreweries = document.createElement('h2');
+    noBreweries.className = 'not-found';
+    noBreweries.textContent = "City not found. Try a larger city near you!";
+    breweryList.appendChild(noBreweries);
   }
+  else {
+    for (i = 0; i < breweries.length; i++) {
+      var breweryName = document.createElement("li");
+      breweryName.className = "brew";
+      breweryName.id = "brew" + i;
+      breweryName.textContent = breweries[i].name;
+      breweryList.append(breweryName);
+    }
+  }
+  
   // Call function to display brewery on calendar on click
   breweryList.addEventListener("click", displaySelectedBrewery);
 }

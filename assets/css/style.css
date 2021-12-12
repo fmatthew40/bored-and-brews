@@ -213,6 +213,12 @@ form {
     text-align: center;
 }
 
+.not-found {
+    background-color:var(--bronze);
+    color: white;
+    text-align: center;
+}
+
 .loading {
     display:none;
     background-color:var(--bronze);

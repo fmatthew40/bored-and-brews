@@ -310,9 +310,11 @@ align-items: center;
 
 .act-alert {
     display:none;
-    background-color: red;
-    color: white;
+    background-color:var(--meat);
+    color: rgb(231, 76, 76);
+    font:bold;
     text-align: center;
+    width: 100%;
 }
 
 .loading {
@@ -331,6 +333,9 @@ align-items: center;
     text-align: center;
     
 }
+#act-list p{
+    width:100%;
+}
 #act-list h2 {
     font-weight:bold;
     width: 100%;
@@ -347,7 +352,7 @@ align-items: center;
 }
 
 .act-item:hover{
-    color: var(--indigo);
+    color: var(--vino);
     background-color: var(--cocao);
     cursor: pointer;
 }
@@ -363,24 +368,37 @@ align-items: center;
 
 
 /* ----------------search btns -----------*/
-
+.sbtns {
+    
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
  .f-btns {
     align-items: center;
     display: row;
-  
+    color: var(--bronze);
+    margin-top: 5%;
+   margin-bottom: 5%;
+   width: 100%;
     text-align: center;
+    border-color: var(--vino);
 }
 
 #search-brews {
-    width: 35%;
+    width: 45%;
     padding:7px;
     align-items: center;
+    background-color: var(--wood);
 }
 
 #search-bored {
-    width: 35%;
+    width: 45%;
    padding:7px;
-  
+   background-color: var(--wood);
     align-items: center;
 }    
   
@@ -421,7 +439,7 @@ form {
     align-items: top;
     color: var(--grey);
     margin:0 10% 0 10;
-   
+   width: 80%;
    
 }
 
@@ -433,13 +451,18 @@ form {
     border-color: var(--vino);
     margin: 5%;
     margin-bottom: 5%;
-}
+} */
 .brew:hover{
-    color: var(--indigo);
+    color: var(--vino);
     background-color: var(--cocao);
     cursor: pointer;
 }
-
+.breweries {
+    width: 100%;
+}
+.field p {
+    width: 100%;
+} 
 .columns .is-mobile .is-centered {
     margin-bottom: 8%;
 }

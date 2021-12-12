@@ -268,34 +268,39 @@
                     </form>
                   <!----activities list loading area-->
                     <div id="act-list">
-                        <h2>Click on an activity below to add it to your calendar:</h2>
-                        <ol id="activities">
-                        </ol>
-                        <p class="act-alert">Please Select An Activity Category</p>
-                        <p class="loading">Loading Activities Please Wait...</p>
+                        <p>Click on an activity below to add it to your calendar:</p>
+                        <p>Click on a brewery below to add it to calendar:</p>
+                        
+                        
                     </div>
-
-                
+                    <p class="act-alert">Please Select An Activity Category</p>
+                    <p class="loading">Loading Activities Please Wait...</p>
+                    <ol id="activities">
+                    </ol>
                     <!--brew form-->
                     <div class="field" id="brew-form">
-                          <label class="label has-text-left">Enter a city to search for brews near you!</label>
+                          
+
+                      <div id="brewery-display">
+                          
+                            
+                            <ol id="breweries"></ol>
+                          
+
+
+                             <!--search btns-->
+                             <label class="label has-text-left">Enter a city to search for brews near you!</label>
                           <div class="control">
                           <input id="city" class="input" type="text" placeholder="Tucson">
                           </div>
 
-                          <div id="brewery-display">
-                          <p>Click on a brewery below to add it to calendar:</p>
-
-                            <ol id="breweries"></ol>
-
-                             <!--search btns-->
-                        <div class="f-btns">
-                            <button id="search-bored" class="button ">Kill
+                           <div class="sbtns">
+                            <button id="search-bored" class="f-btns button ">Kill
                                 Boredom<i class="fas fa-umbrella-beach"></i></button>
         
-                            <button id="search-brews" class="button "> Get
+                            <button id="search-brews" class="f-btns button "> Get
                                 Brews<i class="fas fa-cocktail"></i></button>
-                        </div>
+                          </div>
                         </div>
                        
 

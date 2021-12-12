@@ -17,6 +17,7 @@ var timeToMidnight = getTimetoMidnight(now);
 var day = "";
 var activity = "";
 var brew = "";
+var cleared = false;
 
 // get time in miliseconds to set timeout 
 function getTimetoMidnight(now) {
@@ -29,10 +30,9 @@ function getTimetoMidnight(now) {
   return timetomidnight;
 }
 
-//time out function to set interval to clear calendar monday at midnight
+//time out function to set interval to clear calendar monday at midnight if browser is left open.
 setTimeout(function() {
-    var today = now.getDay();
-    if (today === 1) {
+    if (now.getDay() === 1) {
     activityArray = [];
     localStorage.setItem("activities", JSON.stringify(activityArray));
     location.reload();
@@ -157,14 +157,28 @@ var saveActivities = function() {
     
 }
 
+
 // load activities and breweries from local storage
 var loadActivities = function () {
   var storedData = JSON.parse(localStorage.getItem("activities"));
+  cleared = JSON.parse(localStorage.getItem("cleared"));
+  activityArray = [];
   if (!storedData) {
-    activityArray = [];
+    return;
   }
-  else {
-    activityArray = [];
+  else { 
+    // check if it's monday and calandar needs to be cleared
+    if (now.getDay() === 1 && !cleared) {
+      localStorage.setItem("activities", JSON.stringify(activityArray));
+      cleared = true;
+      localStorage.setItem("cleared", JSON.stringify(cleared));
+      return loadActivities();
+    }
+    // reset cleared on any day that is not monday
+    else if (now.getDay() !== 1) {
+      cleared = false
+      localStorage.setItem("cleared", JSON.stringify(cleared));
+    }
     for (var i = 0; i < storedData.length; i++) {
       activityArray.push(storedData[i]);
       setVariables(storedData[i].day);

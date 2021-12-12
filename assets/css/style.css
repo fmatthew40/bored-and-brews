@@ -135,6 +135,10 @@ header {
 .calendar {
   
 }
+
+.c-sub:hover {
+    color: var(--vino);
+}
 article {
     background-color: var(--bronze);
     display: flex;
@@ -451,7 +455,7 @@ form {
     border-color: var(--vino);
     margin: 5%;
     margin-bottom: 5%;
-} */
+} 
 .brew:hover{
     color: var(--vino);
     background-color: var(--cocao);

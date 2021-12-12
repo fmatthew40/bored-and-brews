@@ -76,8 +76,10 @@ modalExit.onclick = function () {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target == modal || event.target == errorModal) {
+    console.log("clicked");
     modal.style.display = "none";
+    errorModal.style.display = "none";
   }
 }
 
@@ -91,12 +93,6 @@ errorModalExit.onclick = function() {
   errorModal.style.display = "none";
 }
 
-window.onclick = function (event) {
-  if (event.target == errorModal) {
-    errorModal.style.display = 'none';
-  }
-}
- 
 // When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
 var getBrews = function () {
   var city = cityInput.value.replace(/ /g, "_");

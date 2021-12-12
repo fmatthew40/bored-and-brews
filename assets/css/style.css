@@ -229,8 +229,7 @@ article p {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow:scroll; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
     color: var(--bronze);
 
 }
@@ -238,7 +237,7 @@ article p {
 /* Modal Content/Box */
 .modal-content {
     background-color: var(--vino);
-    margin-top:20% ;
+    margin-top:5% ;
     padding: 8px;
     border: 5px var(--bronze);
     display: flex;
@@ -246,7 +245,10 @@ article p {
     justify-content: center;
     align-items: center;
     width:80%;
-    height: 100%;
+    height: 80%;
+    border: solid 10px;
+    border-color: rgb(0,0,0); /* Fallback color */
+    border-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 /* ---------The Close Button-------------- */
 .close {
@@ -264,51 +266,95 @@ text-align: center;
     text-decoration: none;
     cursor: pointer;
 }
-/*----forms------*/
+/*----forms div wrap all forms------*/
 #forms {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 80%;
-}
-form {
-    padding:15px;
     width: 80%;
-    margin-top: 1%;
+    height: 80%;
+    
+}
+/* radio btns form div */
+.modal form {
+    
+    width: 90%;
    
+   height: 70%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    display: table-column;
-   
+    background-color: var(--cocao);
+   padding: 5px;
+  
+    margin-bottom: 5%;
+    
 }
-/*------------- activities----------*/
+/*------------- activities list----------*/
+
 .act-title {
     width:100%;
     align-items: center;
     text-align: center;
+    font-size: 24px;
+    
+}
+/* wrapping for radio btns */
+.control-form .activity-radio  {
+  
+   height: 80%;
+    width: 80%;
+    
+    display:inline-table;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+  
+}  
+
+
+
+form input {
+    background-color: var(--meat);
+  
 }
 
-.activity-radio {
+.radio {
+    background-color: var(--vino);
+    
+  padding: 3px;
+
+  height: 5%;
+  width: 30%;
+ margin: 5px;
+
+ 
+}
+
+
+/* .activity-radio {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-}
+} */
 
-.radio input {
+/* .radio input {
     align-items: center;
     line-height: 2;
     
 }
 form label .radio{
-align-items: center;
-}
-.activity-radio label:first-child {
-    margin-left: 8px;
-}
+width: 100%;
+} */
+/* .activity-radio label:first-child {
+    
+    align-items: center;
+    
+    
+} */
 
 /*---------pick actitities*/
 
@@ -331,7 +377,7 @@ align-items: center;
 }
 
 #act-list {
-    width:100%;
+    width:80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -412,19 +458,19 @@ align-items: center;
 
 
 /* modal styles */
-  .forms {
+ /* .forms {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 8%;
     width: 100%;
-}
-form {
+}  */
+/* form {
  margin:5%; 
     background-color: var(--wood);} */
 
- .control .activity-radio{
+ /* .control .activity-radio{
    width:80%;
    margin:80% ;
    padding: 7%;
@@ -432,7 +478,7 @@ form {
 
 .label {
     color:var(--grey);
-}
+}  */
 
 
 /* .is-size-3 {

@@ -279,7 +279,7 @@ text-align: center;
 /* radio btns form div */
 .modal form {
     
-    width: 90%;
+    width: 80%;
    
    height: 70%;
     display: flex;
@@ -377,16 +377,21 @@ width: 100%;
 }
 
 #act-list {
-    width:80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 80%;
     text-align: center;
-    
+
 }
-#act-list p{
+.hid-act-list-text {
     width:100%;
+    
+   
 }
+.hid-act-list-text p{
+    color: var(--dark);
+    
+    background-color: var(--grey);
+}
+
 #act-list h2 {
     font-weight:bold;
     width: 100%;
@@ -420,6 +425,10 @@ width: 100%;
 
 
 /* ----------------search btns -----------*/
+
+.field label {
+    color: var(--bronze);
+}
 .sbtns {
     
     width: 100%;
@@ -444,13 +453,13 @@ width: 100%;
     width: 45%;
     padding:7px;
     align-items: center;
-    background-color: var(--wood);
+    background-color: var(--cocao);
 }
 
 #search-bored {
     width: 45%;
    padding:7px;
-   background-color: var(--wood);
+   background-color: var(--cocao);
     align-items: center;
 }    
   
@@ -522,8 +531,9 @@ width: 100%;
 .field p {
     width: 100%;
     text-align: center;
-    color: var(--bronze);
+    color: var(--dark);
     margin-bottom: 5%;
+    background-color: var(--grey);
 } 
 .columns .is-mobile .is-centered {
     margin-bottom: 8%;

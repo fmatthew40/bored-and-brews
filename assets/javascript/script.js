@@ -12,38 +12,16 @@ var searchBrewsBtn = document.getElementById("search-brews");
 var modalExit = document.getElementsByClassName("close")[0];
 var errorModalExit = document.getElementsByClassName("close-error")[0];
 var activityArray = [];
-var now = new Date();
-var timeToMidnight = getTimetoMidnight(now);
 var day = "";
 var activity = "";
 var brew = "";
-
-// get time in miliseconds to set timeout 
-function getTimetoMidnight(now) {
-  var mili = now.getMilliseconds();
-  var sec = now.getSeconds() * 1000;
-  var min = now.getMinutes() * 60 * 1000;
-  var hour = now.getHours() * 60 * 60 * 1000;
-  var timeinMil = mili + sec + min + hour;
-  var timetomidnight = (24 * 60 * 60 * 1000) - timeinMil;
-  return timetomidnight;
-}
-
-//time out function to set interval to clear calendar monday at midnight
-setTimeout(function() {
-    var today = now.getDay();
-    if (today === 1) {
-    activityArray = [];
-    localStorage.setItem("activities", JSON.stringify(activityArray));
-    location.reload();
-    }
-    else{
-      location.reload();
-    }
-    
-}, timeToMidnight);
-
-
+var clearData = {date: "", cleared: ""};
+var today = new Date();
+today.setDate(today.getDate());
+var dateseven = new Date();
+dateseven.setDate(dateseven.getDate() + 7);
+var now = new Date();
+ 
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
   day = event.target;
@@ -76,13 +54,13 @@ modalExit.onclick = function () {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target == modal || event.target == errorModal) {
     modal.style.display = "none";
+    errorModal.style.display = "none";
   }
 }
 
 var errorModalDisplay = function () {
-  console.log("error");
   modal.style.display = 'none';
   errorModal.style.display = 'block';
 }
@@ -91,12 +69,6 @@ errorModalExit.onclick = function() {
   errorModal.style.display = "none";
 }
 
-window.onclick = function (event) {
-  if (event.target == errorModal) {
-    errorModal.style.display = 'none';
-  }
-}
- 
 // When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
 var getBrews = function () {
   var city = cityInput.value.replace(/ /g, "_");
@@ -122,14 +94,22 @@ var getBrews = function () {
 
 // Function to display breweries in an ordered list under the city search input field 
 var displayBreweries = function (breweries) {
-
-  for (i = 0; i < breweries.length; i++) {
-    var breweryName = document.createElement("li");
-    breweryName.className = "brew";
-    breweryName.id = "brew" + i;
-    breweryName.textContent = breweries[i].name;
-    breweryList.append(breweryName);
+  if (breweries.length === 0) {
+    var noBreweries = document.createElement('h2');
+    noBreweries.className = 'not-found';
+    noBreweries.textContent = "City not found. Try a larger city near you!";
+    breweryList.appendChild(noBreweries);
   }
+  else {
+    for (i = 0; i < breweries.length; i++) {
+      var breweryName = document.createElement("li");
+      breweryName.className = "brew";
+      breweryName.id = "brew" + i;
+      breweryName.textContent = breweries[i].name;
+      breweryList.append(breweryName);
+    }
+  }
+  
   // Call function to display brewery on calendar on click
   breweryList.addEventListener("click", displaySelectedBrewery);
 }
@@ -153,20 +133,55 @@ var saveActivities = function() {
     
 }
 
+
 // load activities and breweries from local storage
 var loadActivities = function () {
-  var storedData = JSON.parse(localStorage.getItem("activities"));
-  if (!storedData) {
-    activityArray = [];
-  }
-  else {
-    activityArray = [];
-    for (var i = 0; i < storedData.length; i++) {
-      activityArray.push(storedData[i]);
-      setVariables(storedData[i].day);
-      activity.innerHTML = storedData[i].activity;
-      brew.innerHTML = storedData[i].brew
+  activityArray = JSON.parse(localStorage.getItem("activities"));
+  clearData = JSON.parse(localStorage.getItem("cleared"));
+  if (!clearData) {
+    clearData = {
+      "date":  dateseven,
+      "cleared": false
     }
+    localStorage.setItem("cleared", JSON.stringify(clearData));
+  }
+  if (!activityArray || activityArray.length === 0) {
+    activityArray = [];
+    return;
+  }
+  else { 
+    var savedDate = Date.parse(clearData.date);
+    // reset cleared value if it's been a week since last cleared
+    if (today >= savedDate && clearData.cleared) {
+      clearData.cleared = false;
+    }
+    // if opened monday, clear previous week
+    if (now.getDay() === 1  && !clearData.cleared) {
+      clearDataSet();
+    }
+    // if program not opened on monday; check if it's been more than seven days from last clear, then clear
+    else if (today >= savedDate && !clearData.cleared) {
+      clearDataSet();    
+    } 
+    else {
+      displaySavedActvities(activityArray);
+    }
+  }
+}
+
+function clearDataSet() {
+  activityArray = [];
+  localStorage.setItem("activities", JSON.stringify(activityArray));
+  clearData = {date: dateseven, cleared: true};      
+  localStorage.setItem("cleared", JSON.stringify(clearData));
+  location.reload();
+}
+
+function displaySavedActvities(data) {
+  for (var i = 0; i < data.length; i++) {
+    setVariables(data[i].day);
+    activity.innerHTML = data[i].activity;
+    brew.innerHTML = data[i].brew
   }
 }
 

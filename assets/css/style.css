@@ -142,7 +142,6 @@ header {
 
 .error-modal {
     display: none;
-    z-index: 45;
 }
 
 /* The Modal (background) */
@@ -210,6 +209,12 @@ form {
 .act-alert {
     display:none;
     background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.not-found {
+    background-color:var(--bronze);
     color: white;
     text-align: center;
 }

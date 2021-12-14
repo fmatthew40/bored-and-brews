@@ -1,5 +1,3 @@
-
-
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
 var errorModal =document.getElementById("error-modal");
@@ -23,6 +21,7 @@ today.setDate(today.getDate());
 var dateseven = new Date();
 dateseven.setDate(dateseven.getDate() + 7);
 var now = new Date();
+console.log("working");
  
 // handler to call modal when a day is clicked
 var divHandler = function (event) {

@@ -171,7 +171,6 @@ var getActivities = function () {
   getBoredApiData(radioActVal);
 
   activityList.addEventListener("click", chooseActivity);
-
 }
 
 // Function to get activities from bored API
@@ -213,8 +212,6 @@ var displayActivities = function (activityArr) {
   searchBrewsBtn.style.display = "block";
   loadingAlert.style.display = "none";
 }
-  activityList.addEventListener("click", chooseActivity);
- 
 
 // Function to display bored activities on weekday schedule
 var chooseActivity = function (event) {

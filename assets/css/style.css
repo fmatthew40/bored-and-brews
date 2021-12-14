@@ -255,26 +255,26 @@ article p {
     align-items: center;
     background-color: var(--cocao);
     padding: 5px;
-    margin-bottom: 5%;
+    margin-bottom: 8px;
 }
 
 /*------------- activities list----------*/
 
 .act-title {
-    width:100%;
+    /* width:100%;
     align-items: center;
-    text-align: center;
+    text-align: center; */
     font-size: 24px;  
 }
 
 /* wrapping for radio btns */
 .control-form .activity-radio  {
-    height: 80%;
+    /* height: 80%;
     width: 80%;  
     display:inline-table;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }  
 
 form input {
@@ -298,6 +298,8 @@ form input {
     font:bold;
     text-align: center;
     width: 100%;
+    margin-bottom: 10px;
+    width: 40%!important;
 }
 
 .not-found {

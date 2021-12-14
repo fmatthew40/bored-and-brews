@@ -217,8 +217,11 @@ var displayActivities = function (activityArr) {
 }
   activityList.addEventListener("click", chooseActivity);
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 189e2a67f74acacf76b8414dcaed6e2b80366d29
 // Function to display bored activities on weekday schedule
 var chooseActivity = function (event) {
   var chosenAct = event.target

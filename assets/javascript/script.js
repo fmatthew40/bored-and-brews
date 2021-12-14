@@ -1,5 +1,8 @@
+
+
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
+var errorModal =document.getElementById("error-modal");
 var activitiesRadio = document.getElementsByName("activity")
 var activityList = document.getElementById("activities");
 var activityAlert = document.getElementsByClassName("act-alert")[0];
@@ -9,41 +12,18 @@ var breweryList = document.getElementById("breweries");
 var searchBoredBtn = document.getElementById("search-bored");
 var searchBrewsBtn = document.getElementById("search-brews");
 var modalExit = document.getElementsByClassName("close")[0];
+var errorModalExit = document.getElementsByClassName("close-error")[0];
 var activityArray = [];
-var now = new Date();
-var timeToMidnight = getTimetoMidnight(now);
 var day = "";
 var activity = "";
 var brew = "";
-
-// get time in miliseconds to set timeout 
-function getTimetoMidnight(now) {
-  var mili = now.getMilliseconds();
-  var sec = now.getSeconds() * 1000;
-  var min = now.getMinutes() * 60 * 1000;
-  var hour = now.getHours() * 60 * 60 * 1000;
-  var timeinMil = mili + sec + min + hour;
-  var timetomidnight = (24 * 60 * 60 * 1000) - timeinMil;
-  return timetomidnight;
-}
-
-//time out function to set interval to clear calendar monday at midnight
-setTimeout(() => {
-  setInterval((today) => {
-    var today = now.getDay();
-    if (today === 1) {
-      activityArray = [];
-      localStorage.setItem("activities", JSON.stringify(activityArray));
-      loadActivities();
-    }
-    else {
-      return;
-    }
-  }, (24 * 60 * 60 * 1000));
-
-}, timeToMidnight);
-
-
+var clearData = {date: "", cleared: ""};
+var today = new Date();
+today.setDate(today.getDate());
+var dateseven = new Date();
+dateseven.setDate(dateseven.getDate() + 7);
+var now = new Date();
+ 
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
   day = event.target;
@@ -72,15 +52,23 @@ var modalInputFunction = function () {
 // When the user clicks on <span> (x), close the modal
 modalExit.onclick = function () {
   modal.style.display = "none";
-  saveActivities();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target == modal || event.target == errorModal) {
     modal.style.display = "none";
-    saveActivities();
+    errorModal.style.display = "none";
   }
+}
+
+var errorModalDisplay = function () {
+  modal.style.display = 'none';
+  errorModal.style.display = 'block';
+}
+
+errorModalExit.onclick = function() {
+  errorModal.style.display = "none";
 }
 
 // When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
@@ -96,23 +84,34 @@ var getBrews = function () {
         // Clear prior searches from ordered list
         breweryList.textContent = "";
 
-        // Call function to display breweries in modal
-        displayBreweries(data);
-      })
-    }
+          // Call function to display breweries in modal
+          displayBreweries(data);
+        })
+      }
+    })
+  .catch(function(error) {
+    errorModalDisplay();
   })
 }
 
 // Function to display breweries in an ordered list under the city search input field 
 var displayBreweries = function (breweries) {
-
-  for (i = 0; i < breweries.length; i++) {
-    var breweryName = document.createElement("li");
-    breweryName.className = "brew";
-    breweryName.id = "brew" + i;
-    breweryName.textContent = breweries[i].name;
-    breweryList.append(breweryName);
+  if (breweries.length === 0) {
+    var noBreweries = document.createElement('h2');
+    noBreweries.className = 'not-found';
+    noBreweries.textContent = "City not found. Try a larger city near you!";
+    breweryList.appendChild(noBreweries);
   }
+  else {
+    for (i = 0; i < breweries.length; i++) {
+      var breweryName = document.createElement("li");
+      breweryName.className = "brew";
+      breweryName.id = "brew" + i;
+      breweryName.textContent = breweries[i].name;
+      breweryList.append(breweryName);
+    }
+  }
+  
   // Call function to display brewery on calendar on click
   breweryList.addEventListener("click", displaySelectedBrewery);
 }
@@ -128,25 +127,63 @@ var displaySelectedBrewery = function (event) {
 }
 
 // save activities and breweries in local storage
-var saveActivities = function () {
-  var arrayObj = { "day": day, "activity": activity.innerHTML, "brew": brew.innerHTML };
+var saveActivities = function() { 
+  var arrayObj = {"day": day, "activity": activity.innerHTML, "brew":brew.innerHTML};
   activityArray.push(arrayObj);
   // save object to local storage array
   localStorage.setItem("activities", JSON.stringify(activityArray));
+    
 }
+
 
 // load activities and breweries from local storage
 var loadActivities = function () {
-  var storedData = JSON.parse(localStorage.getItem("activities"));
-  if (!storedData) {
-    activityArray = [];
-  }
-  else {
-    for (var i = 0; i < storedData.length; i++) {
-      setVariables(storedData[i].day);
-      activity.innerHTML = storedData[i].activity;
-      brew.innerHTML = storedData[i].brew
+  activityArray = JSON.parse(localStorage.getItem("activities"));
+  clearData = JSON.parse(localStorage.getItem("cleared"));
+  if (!clearData) {
+    clearData = {
+      "date":  dateseven,
+      "cleared": false
     }
+    localStorage.setItem("cleared", JSON.stringify(clearData));
+  }
+  if (!activityArray || activityArray.length === 0) {
+    activityArray = [];
+    return;
+  }
+  else { 
+    var savedDate = Date.parse(clearData.date);
+    // reset cleared value if it's been a week since last cleared
+    if (today >= savedDate && clearData.cleared) {
+      clearData.cleared = false;
+    }
+    // if opened monday, clear previous week
+    if (now.getDay() === 1  && !clearData.cleared) {
+      clearDataSet();
+    }
+    // if program not opened on monday; check if it's been more than seven days from last clear, then clear
+    else if (today >= savedDate && !clearData.cleared) {
+      clearDataSet();    
+    } 
+    else {
+      displaySavedActvities(activityArray);
+    }
+  }
+}
+
+function clearDataSet() {
+  activityArray = [];
+  localStorage.setItem("activities", JSON.stringify(activityArray));
+  clearData = {date: dateseven, cleared: true};      
+  localStorage.setItem("cleared", JSON.stringify(clearData));
+  location.reload();
+}
+
+function displaySavedActvities(data) {
+  for (var i = 0; i < data.length; i++) {
+    setVariables(data[i].day);
+    activity.innerHTML = data[i].activity;
+    brew.innerHTML = data[i].brew
   }
 }
 
@@ -173,6 +210,8 @@ var getActivities = function () {
   activityList.addEventListener("click", chooseActivity);
 }
 
+
+var activityArr = [];
 // Function to get activities from bored API
 var getBoredApiData = function (radioActVal) {
   activityList.textContent = "";
@@ -181,23 +220,26 @@ var getBoredApiData = function (radioActVal) {
 
   var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
 
-  var activityArr = []
-
-  for(i = 0; i < 3; i++) {
     fetch(boredUrl).then(function(response) {
       if(response.ok) {
         response.json().then(function (data){
-          activityArr.push(data.activity);
-        })
+          while (activityArr.length < 3) {
+            if (activityArr.includes(data.activity)) {
+              return getBoredApiData(radioActVal);
+            }
+            else {
+              activityArr.push(data.activity);
+              return getBoredApiData(radioActVal);
+            }
+          }
+          displayActivities(activityArr);
+        });
       }
+
     })
-  }
-  var actTime = setInterval(function () {
-    if (activityArr.length === 3) {
-      displayActivities(activityArr);
-      clearInterval(actTime);
-    }
-  }, 1000);
+    .catch(function(error) {
+      errorModalDisplay();
+    });
 }
 
 // Function to display bored API activities in modal
@@ -211,6 +253,8 @@ var displayActivities = function (activityArr) {
   searchBoredBtn.style.display = "block";
   searchBrewsBtn.style.display = "block";
   loadingAlert.style.display = "none";
+
+  activityList.addEventListener("click", chooseActivity);
 }
 
 // Function to display bored activities on weekday schedule
@@ -221,6 +265,7 @@ var chooseActivity = function (event) {
     activity.innerHTML = selectedAct;
     saveActivities();
   }
+  saveActivities();
 }
 
 searchBoredBtn.addEventListener("click", getActivities);

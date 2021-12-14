@@ -265,6 +265,14 @@ form {
     text-decoration: none;
     cursor: pointer;
 }
+
+.closediv {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0; 
+    margin-right:14px;
+}
 /* search btn */
 .columns .is-mobile .is-centered {
     display: flex;
@@ -338,6 +346,16 @@ form {
 /* screen sizes */
 
 @media screen and (max-width:945px) {
+    #search-bored {
+        margin-top:-170px;
+        width: fit-content;
+    }
+
+    #search-brews {
+        margin-top:-170px;
+        width: fit-content;
+    }
+
     form {
         padding:5px;
         width: 115%;
@@ -397,7 +415,7 @@ form {
     #forms {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 20% 20% 25%;
+        grid-template-rows: 20% 28% 25%;
         margin: 1%;
     }
     .field {
@@ -413,28 +431,95 @@ form {
     }
     .label {
         margin-bottom: 3%;
-        width: 100%;
+        width: 80%;
+        margin-left: auto; 
+    }
+
+    #brewery-display p {
         text-align: center;
     }
+
+    @media screen and (max-width:609px) {
+
+        .container {
+            margin: 3px;
+        }
+    
+        #search-bored {
+            margin-right: 5%;
+            margin-top:-100px;
+            width: fit-content; 
+        }
+    
+        #act-list {
+            margin-right: auto;
+            margin-left: auto;
+        }
+    
+        #search-brews {
+            margin-top:-100px;
+            width: fit-content;
+        }
+        
+        .activity-radio {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+        }
+    
+        form {
+            width:100%;
+            padding: 0px 35px;
+            height:fit-content;
+        }
+    
+        #forms {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 26% 28% 25%;
+            margin: 1%;
+        }
+        .field {
+            margin: 2%;
+            margin-bottom: 5%;
+        }
+       .input{
+        margin-bottom: 3%;
+        width: 100%;
+        text-align: center;
+       }
+            
+        }
+        .label {
+            margin-bottom: 3%;
+            width: 80%;
+            margin-left: auto; 
+        }
+    
+        #brewery-display p {
+            text-align: center;
+        }
+    
 
     @media screen and (max-width:540px) {
         #search-bored {
             width:fit-content;
             margin-right: 8px;
-            margin-top:-100px;
+            margin-top:-110px;
         }
     
         #search-brews {
             width:fit-content;
-            margin-top:-100px;
+            margin-top:-110px;
             margin-right: 0px;
         }
 
     #forms {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 22% 23% 25%;
+        grid-template-rows: 22% 32% 25%;
         margin: 1%;
+        text-align: center;
     }
 
         form {
@@ -452,17 +537,23 @@ form {
         .city-label {
             margin-top: 40px;
         }
+
+        .label {
+            margin-bottom: 3%;
+            width: 90%;
+            margin-left: auto;
+    }
     }
 
-    @media screen and (max-width:405px) {
+    @media screen and (max-width:433px) {
         #search-bored {
             width:fit-content;
-            margin-top:-100px;
+            margin-top:-138px;
         }
     
         #search-brews {
             width:fit-content;
-            margin-top:-35px;
+            margin-top:-77px;
             margin-right: 30px;
             margin-left: -170px;
         }
@@ -474,8 +565,9 @@ form {
         #forms {
             display: grid;
             grid-template-columns: 100%;
-            grid-template-rows: 22% 27% 25%;
+            grid-template-rows: 28% 27% 25%;
             margin: 1%;
+            text-align: center;
         }
 
         #breweries {
@@ -491,3 +583,40 @@ form {
         }
     }
 
+    @media screen and (max-width:318px) {
+        #search-bored {
+            width:fit-content;
+            margin-top:-120px;
+        }
+    
+        #search-brews {
+            width:fit-content;
+            margin-top:-58px;
+            margin-right: 30px;
+            margin-left: -170px;
+        }
+
+        form {
+            height: fit-content;
+        }
+
+        #forms {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 32% 27% 25%;
+            margin: 1%;
+            text-align: center;
+        }
+
+        #breweries {
+            margin-bottom: 30px;
+        }
+
+        #act-list h2{
+            margin-top: 25px;
+        }
+
+        .city-label {
+            margin-top: 40px;
+        }
+    }

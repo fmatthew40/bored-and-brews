@@ -237,6 +237,12 @@ article p {
     background-color: var(--cocao);
     padding: 5px;
     margin: 8px auto;
+    min-width: 60%;
+}
+.control-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 }
 
 /*------------- activities list----------*/
@@ -256,7 +262,7 @@ form input {
     background-color: var(--vino);
     padding: 3px;
     height: 5%;
-    width: 30%;
+    width: 8rem;
     margin: 5px;
 }
 

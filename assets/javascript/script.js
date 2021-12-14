@@ -26,6 +26,7 @@ var now = new Date();
  
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
+  debugger
   day = event.target;
   if (day.matches(".day>*, .day")) {
     day = day.closest("article").getAttribute("id");

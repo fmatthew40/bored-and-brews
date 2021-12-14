@@ -214,15 +214,8 @@ article p {
 /* Modal Content/Box */
 .modal-content {
     background-color: var(--vino);
-    margin-top:8px ;
     padding: 8px;
     border: 5px var(--bronze);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width:80%;
-    height: 80%;
     border: solid 10px;
     border-color: rgb(0,0,0); /* Fallback color */
     border-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -234,41 +227,26 @@ article p {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
     height: 80%;
+    margin-top: 3vh;
 }
 
 /* radio btns form div */
 .modal form {
-    /* width: 80%;
-    height: 70%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; */
     background-color: var(--cocao);
     padding: 5px;
-    margin-bottom: 8px;
+    margin: 8px auto;
 }
 
 /*------------- activities list----------*/
 
 .act-title {
-    /* width:100%;
-    align-items: center; */
     text-align: center;
     font-size: 24px;
 }
 
 /* wrapping for radio btns */
-.control-form .activity-radio  {
-    /* height: 80%;
-    width: 80%;
-    display:inline-table;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; */
-}
 
 form input {
     background-color: var(--meat);
@@ -330,7 +308,7 @@ form input {
     color:var(--meat);
     background-color: rgb(132, 115, 115);
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 8px;
     padding: 5px;
     width:80%;
 }
@@ -344,8 +322,8 @@ form input {
 #activities {
     display:flex;
     justify-content: center;
-    flex-direction: row;
-    margin: 8px;
+    margin: 5px;
+    margin-bottom: 0px;
     flex-flow: row wrap;
     align-items: center;
 }
@@ -353,13 +331,12 @@ form input {
 
 #search-bored {
     width: 35%;
-    margin-right: 225px;
+    margin: 5px auto
 }
 
 /* The Close Button */
 .close, .close-error {
     color: var(--bronze);
-    float: right;
     font-size: 28px;
     font-weight: bold;
 }
@@ -470,12 +447,7 @@ form input {
     background-color: var(--grey);
 }
 
-.columns .is-mobile .is-centered {
-    margin-bottom: 8%;
-}
-
 .foot {
-    position: sticky ;
     background-color: var(--dark);
     width: 95%;
     text-align: center;

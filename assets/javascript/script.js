@@ -3,6 +3,7 @@ var modal = document.getElementById("modal");
 var errorModal =document.getElementById("error-modal");
 var activitiesRadio = document.getElementsByName("activity")
 var activityList = document.getElementById("activities");
+var activityRadio = document.querySelector(".activity-radio, .activity-radio>*")
 var activityAlert = document.getElementsByClassName("act-alert")[0];
 var loadingAlert = document.getElementsByClassName("loading")[0];
 var cityInput = document.getElementById("city");
@@ -188,7 +189,6 @@ function displaySavedActvities(data) {
 
 // Function to get values from radio buttons
 var getActivities = function () {
-
   for (i = 0; i < activitiesRadio.length; i++) {
     var radioValue = activitiesRadio[i];
 
@@ -201,8 +201,14 @@ var getActivities = function () {
       loadingAlert.style.display = "block";
     } else if (!radioValue.checked) {
       //alert user to choose a category
+      searchBoredBtn.style.display = 'none';
       activityAlert.style.display = "block";
+      activityRadio.onclick = function (event) {
+        searchBoredBtn.style.display = 'block';
+        activityAlert.style.display = 'none';
+      }
     }
+    
   }
   getBoredApiData(radioActVal);
 

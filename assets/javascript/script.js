@@ -25,12 +25,10 @@ dateseven.setDate(dateseven.getDate() + 7);
 var now = new Date();
 now.setDate(now.getDate() + 20);
  
-console.log(today);
-console.log(dateseven);
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
-  debugger
   day = event.target;
+  console.log(day);
   if (day.matches(".day>*, .day")) {
     day = day.closest("article").getAttribute("id");
     setVariables(day);

@@ -27,7 +27,6 @@ var now = new Date();
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
   day = event.target;
-  console.log(day);
   if (day.matches(".day>*, .day")) {
     day = day.closest("article").getAttribute("id");
     setVariables(day);
@@ -58,14 +57,12 @@ modalExit.onclick = function () {
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal || event.target == errorModal) {
-    console.log("clicked");
     modal.style.display = "none";
     errorModal.style.display = "none";
   }
 }
 
 var errorModalDisplay = function () {
-  console.log("error");
   modal.style.display = 'none';
   errorModal.style.display = 'block';
 }
@@ -156,15 +153,15 @@ var loadActivities = function () {
   }
   else { 
     var savedDate = Date.parse(clearData.date);
+    // reset cleared value if it's been a week since last cleared
     if (today >= savedDate && clearData.cleared) {
       clearData.cleared = false;
-      localStorage.setItem("cleared", JSON.stringify(clearData));
     }
     // if opened monday, clear previous week
-    if (now.getDay() === 2  && !clearData.cleared) {
+    if (now.getDay() === 1  && !clearData.cleared) {
       clearDataSet();
     }
-    // if program not opened on monday; check if it's been more than seven days from last clear and hasn't been cleared, then calandar needs to be cleared
+    // if program not opened on monday; check if it's been more than seven days from last clear, then clear
     else if (today >= savedDate && !clearData.cleared) {
       clearDataSet();    
     } 
@@ -184,7 +181,6 @@ function clearDataSet() {
 
 function displaySavedActvities(data) {
   for (var i = 0; i < data.length; i++) {
-    // activityArray.push(data[i]);
     setVariables(data[i].day);
     activity.innerHTML = data[i].activity;
     brew.innerHTML = data[i].brew

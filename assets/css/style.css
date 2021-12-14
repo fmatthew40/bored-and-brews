@@ -374,12 +374,13 @@ form input {
     color: black;
     text-decoration: none;
     cursor: pointer;
-
+  }
 /* ----------------search btns -----------*/
 
 .field label {
     color: var(--bronze);
 }
+
 .sbtns { 
     width: 100%;
     align-items: center;

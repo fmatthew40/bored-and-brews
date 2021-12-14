@@ -368,7 +368,7 @@ form input {
 .f-btns {
     color: var(--bronze);
     margin: 8px auto;
-    width: 35%;
+    width: 10rem;
     font-size: .9rem;
     text-align: center;
     border-color: var(--vino);

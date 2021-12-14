@@ -49,9 +49,7 @@
     text-align:center;
     font-size: 16px;
     font-weight:bold;
-
 }
-
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -71,14 +69,11 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-   
     width: 100%;
     margin: 2%;
     margin-top: 3%;
     background-color: var(--bronze);
 }
-
-
 
 .hero-body {
     background-color: var(--bronze);
@@ -87,14 +82,11 @@ header {
     justify-content: center;
     align-items: center;
   width: 100%;
-    margin-top: 20px;
-    margin-bottom: ;
+    margin-top: 20px; 
 }
-
 
 /* -------------gallery ----------- */
 .hero .navbar {
-   
    border-bottom-left-radius: 0px;
    border-bottom-right-radius: 0px;
 }
@@ -107,23 +99,16 @@ header {
     position: relative;
     margin: 2rem auto;
     width:60%;
-    
-
 }
 
 .Gimages {
     display: flex;
-
-
     width: 100%;
-
     height: 500px;
 }
 
-
 /*-----------calendar-----------*/
 .container {
-  
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -131,9 +116,6 @@ header {
     margin-bottom: 5%;
     margin-top: 10%;
     width: 80%;
-}
-.calendar {
-  
 }
 
 .c-sub:hover {
@@ -149,15 +131,15 @@ article:hover {
     background-color: var(--cocao);
 }
 article .title:hover{
-    color: var(--vino);
-    
+    color: var(--vino);  
 }
+
 article .subtitle:hover{
     color: var(--bronze);
 }
+
 article p {
     color: var(--vino);
-
 }
 
 .notification.is-primary{
@@ -167,38 +149,33 @@ article p {
     justify-content: center;
     align-items: center;
 }
+
 .notification.is-primary:hover{
     background-color: var(--grey);
     cursor:pointer;
 }
 
 .tile .is-ancestor {
- 
     margin-bottom: 5%;
-    
 }
 
 .tile .is-vertical .is-12{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    
-   
+    align-items: center;  
 }
 
-
 .tile {
-    background-color: var(--bronze);
+    background-color: var(--vino);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-top: 10%px;
-    margin:6px;
-    
-    
+    margin:6px;  
 }
+
 .day {
     background-color: var(--bronze);
     display: flex;
@@ -210,29 +187,24 @@ article p {
     margin: 10%;
     width: 100%;
 }
+
 .container p {
     color: var(--vino);
 }
 
-
-
 /* The Modal (background) ------------------------*/
-.modal {
-   
+.modal { 
     position: fixed; 
-    display: flex;
-    align-items: center;
+    display: none; 
     padding-bottom: 100px;
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow:scroll; /* Enable scroll if needed */
-    
+    overflow:scroll; /* Enable scroll if needed */    
     color: var(--bronze);
-
-}
+} 
 
 /* Modal Content/Box */
 .modal-content {
@@ -253,7 +225,7 @@ article p {
 /* ---------The Close Button-------------- */
 .close {
     color: var(--bronze);
-text-align: center;
+    text-align: center;
     font-size: 28px;
     font-weight: bold;
     position: relative;
@@ -266,6 +238,7 @@ text-align: center;
     text-decoration: none;
     cursor: pointer;
 }
+
 /*----forms div wrap all forms------*/
 #forms {
     display: flex;
@@ -277,84 +250,48 @@ text-align: center;
     
 }
 /* radio btns form div */
-.modal form {
-    
-    width: 80%;
-   
-   height: 70%;
+.modal form {   
+    width: 80%; 
+    height: 70%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-color: var(--cocao);
-   padding: 5px;
-  
+    padding: 5px;
     margin-bottom: 5%;
-    
 }
+
 /*------------- activities list----------*/
 
 .act-title {
     width:100%;
     align-items: center;
     text-align: center;
-    font-size: 24px;
-    
+    font-size: 24px;  
 }
+
 /* wrapping for radio btns */
 .control-form .activity-radio  {
-  
-   height: 80%;
-    width: 80%;
-    
+    height: 80%;
+    width: 80%;  
     display:inline-table;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
-  
 }  
-
-
 
 form input {
     background-color: var(--meat);
-  
 }
 
 .radio {
-    background-color: var(--vino);
-    
-  padding: 3px;
-
-  height: 5%;
-  width: 30%;
- margin: 5px;
-
- 
+    background-color: var(--vino);    
+    padding: 3px;
+    height: 5%;
+    width: 30%;
+    margin: 5px;
 }
-
-
-/* .activity-radio {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-} */
-
-/* .radio input {
-    align-items: center;
-    line-height: 2;
-    
-}
-form label .radio{
-width: 100%;
-} */
-/* .activity-radio label:first-child {
-    
-    align-items: center;
-    
-    
-} */
 
 /*---------pick actitities*/
 
@@ -418,9 +355,8 @@ width: 100%;
     justify-content: center;
     flex-direction: row;
     margin:17px;
-   
-        flex-flow: row wrap;
-        align-items: center;
+    flex-flow: row wrap;
+    align-items: center;
 }
 
 
@@ -429,18 +365,19 @@ width: 100%;
 .field label {
     color: var(--bronze);
 }
-.sbtns {
-    
+.sbtns { 
     width: 100%;
     align-items: center;
+}
 
-.closediv {
+ .closediv {
     float: right;
     position: absolute;
     top: 0;
     right: 0; 
     margin-right:14px;
-}
+} 
+
 /* search btn */
 .columns .is-mobile .is-centered {
     display: flex;
@@ -448,13 +385,14 @@ width: 100%;
     justify-content: center;
     
 }
+
  .f-btns {
     align-items: center;
     display: row;
     color: var(--bronze);
     margin-top: 5%;
-   margin-bottom: 5%;
-   width: 100%;
+    margin-bottom: 5%;
+    width: 100%;
     text-align: center;
     border-color: var(--vino);
 }
@@ -472,40 +410,6 @@ width: 100%;
    background-color: var(--cocao);
     align-items: center;
 }    
-  
-  
-
-
-/* modal styles */
- /* .forms {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 8%;
-    width: 100%;
-}  */
-/* form {
- margin:5%; 
-    background-color: var(--wood);} */
-
- /* .control .activity-radio{
-   width:80%;
-   margin:80% ;
-   padding: 7%;
-} 
-
-.label {
-    color:var(--grey);
-}  */
-
-
-/* .is-size-3 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: left;
-} */
 
 .field {
     justify-content: center;
@@ -534,9 +438,7 @@ width: 100%;
     width: 100%;
 }
 .brewery-display {
-    text-align: center;
-    
-    
+    text-align: center;   
 }
 .field p {
     width: 100%;
@@ -548,31 +450,6 @@ width: 100%;
 .columns .is-mobile .is-centered {
     margin-bottom: 8%;
 }
-
-/* screen sizes */
-
-@media screen and (max-width:945px) {
-    #search-bored {
-        margin-top:-170px;
-        width: fit-content;
-    }
-
-    #search-brews {
-        margin-top:-170px;
-        width: fit-content;
-    }
-
-    form {
-        padding:5px;
-        width: 115%;
-        margin-bottom:200px;
-    }
-    #act-list {
-        font-size: 15px;
-        margin: 5px 6px 0px 25px;
-        padding-left: 6px;
-    }
-
 .foot {
     position: sticky ;
     background-color: var(--dark);
@@ -580,246 +457,6 @@ width: 100%;
     text-align: center;
     padding-top: 1%;
     padding-bottom: 10px;
-    margin-bottom: 2%;
-    
+    margin-bottom: 2%;   
 }
-
-
-/* screen sizes */
-
-/* @media screen and (max-width:1224px) {
- 
-/* 
-
-@media screen and (max-width:775px) {
-
-    .container {
-        margin: 3px;
-    }
-
-    #search-bored {
-        
-        width: fit-content; 
-    }
-
-    #act-list {
-      
-    }
-
-    #search-brews {
-        
-        width: fit-content;
-    }
     
-    .activity-radio {
-        display: flex;
-        flex-flow: row wrap;
-        align-items: left; */
-    } */
-
-    /* form {
-        width:80%;
-        
-        height:fit-content;
-    }
-
-    #forms {
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 20% 28% 25%;
-        margin: 1%;
-    }
-    .field {
-        margin: 2%;
-        margin-bottom: 5%;
-    }
-   .input{
-    margin-bottom: 3%;
-    width: 100%;
-    text-align: center;
-   }
-        
-    }
-    .label {
-        margin-bottom: 3%;
-        width: 80%;
-        margin-left: auto; 
-    }
-
-    #brewery-display p {
-        text-align: center;
-    } */
-
-    @media screen and (max-width:609px) {
-
-        .container {
-            margin: 3px;
-        }
-    
-        #search-bored {
-            margin-right: 5%;
-            margin-top:-100px;
-            width: fit-content; 
-        }
-    
-        #act-list {
-            margin-right: auto;
-            margin-left: auto;
-        }
-    
-        #search-brews {
-            margin-top:-100px;
-            width: fit-content;
-        }
-        
-        .activity-radio {
-            display: flex;
-            flex-flow: row wrap;
-            align-items: flex-start;
-        }
-    
-        form {
-            width:100%;
-            padding: 0px 35px;
-            height:fit-content;
-        }
-    
-        #forms {
-            display: grid;
-            grid-template-columns: 100%;
-            grid-template-rows: 26% 28% 25%;
-            margin: 1%;
-        }
-        .field {
-            margin: 2%;
-            margin-bottom: 5%;
-        }
-       .input{
-        margin-bottom: 3%;
-        width: 100%;
-        text-align: center;
-       }
-            
-        }
-        .label {
-            margin-bottom: 3%;
-            width: 80%;
-            margin-left: auto; 
-        }
-    
-        #brewery-display p {
-            text-align: center;
-        }
-    
-
-    @media screen and (max-width:540px) {
-        #search-bored {
-            width:fit-content;
-            margin-right: 8px;
-            margin-top:-110px;
-        }
-    
-        #search-brews {
-            width:fit-content;
-            margin-top:-110px;
-            margin-right: 0px;
-        } */
-/* 
-    #forms {
-        display: grid;
-       
-    }
-
-        form {
-            height: fit-content;
-        } */
-/* 
-        #breweries {
-            margin-bottom: 30px;
-        }
-
-        #act-list h2{
-            margin-top: 8px;
-        }
-
-        .city-label {
-            margin-top: 40px;
-        }
-
-        .label {
-            margin-bottom: 3%;
-            width: 90%;
-            margin-left: auto;
-    }
-    }
-
-    @media screen and (max-width:405px) {
-        /* #search-bored { */
-            /* width:fit-content;
-            
-        }
-    
-        #search-brews {
-            width:fit-content;
-            
-        }
-
-        form {
-            height: fit-content;
-        }
-
-        #forms {
-            display: grid;
-            
-        }
-
-        #breweries {
-            margin-bottom: 30px;
-        }
-
-        #act-list h2{
-            margin-top: 25px;
-        }
-
-        .city-label {
-            margin-top: 40px;
-        }
-    }
-
-    @media screen and (max-width:318px) {
-        #search-bored {
-            width:fit-content;
-            margin-top:-120px;
-        }
-    
-        #search-brews {
-            width:fit-content;
-            margin-top:-58px;
-            margin-right: 30px;
-            margin-left: -170px;
-        }
-
-        form {
-            height: fit-content;
-        }
-
-        #forms {
-            display: grid;
-            grid-template-columns: 100%;
-            grid-template-rows: 32% 27% 25%;
-            margin: 1%;
-            text-align: center;
-        }
-
-        #breweries {
-            margin-bottom: 30px;
-        }
-
-        #act-list h2{
-            margin-top: 25px;
-        }
-
-        .city-label {
-            margin-top: 40px;
-        }
-    }

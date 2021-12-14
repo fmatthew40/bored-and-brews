@@ -328,12 +328,6 @@ form input {
     align-items: center;
 }
 
-
-#search-bored {
-    width: 35%;
-    margin: 5px auto
-}
-
 /* The Close Button */
 .close, .close-error {
     color: var(--bronze);
@@ -358,61 +352,32 @@ form input {
 
 /* ----------------search btns -----------*/
 
-.field label {
-    color: var(--bronze);
-}
-/* .f-btns {
-    width: 100%;
-    align-items: center;
-} */
-
- .closediv {
+.closediv {
     float: right;
     position: absolute;
     top: 0;
     right: 0;
     margin-right:14px;
 }
-
-/* search btn */
-/* .columns .is-mobile .is-centered {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-} */
-
- .f-btns {
-    align-items: center;
-    display: row;
+.f-btns {
     color: var(--bronze);
     margin: 8px auto;
-    width: 100%;
+    width: 35%;
+    font-size: .9rem;
     text-align: center;
     border-color: var(--vino);
-}
-
-#search-brews {
-    width: 45%;
-    padding:7px;
-    align-items: center;
     background-color: var(--cocao);
 }
 
-#search-bored {
-    width: 45%;
-   padding:7px;
-   background-color: var(--cocao);
-    align-items: center;
-}
-
 .field {
-    justify-content: center;
-    align-items: top;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
     color: var(--grey);
-    margin:0 10% 0 10;
-   width: 80%;
-
+    width: 80%;
+}
+.field label {
+    color: var(--bronze);
 }
 
 .brew{

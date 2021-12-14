@@ -187,15 +187,21 @@ article p {
     margin: 10%;
     width: 100%;
 }
+.modal {
+    display: none;
+}
+
+.error-modal {
+    display: none;
+}
 
 .container p {
     color: var(--vino);
 }
 
 /* The Modal (background) ------------------------*/
-.modal { 
+.modal .error-modal{ 
     position: fixed; 
-    display: none; 
     padding-bottom: 100px;
     z-index: 1; /* Sit on top */
     left: 0;
@@ -222,22 +228,6 @@ article p {
     border-color: rgb(0,0,0); /* Fallback color */
     border-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-/* ---------The Close Button-------------- */
-.close {
-    color: var(--bronze);
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    position: relative;
-    width:100%;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 /*----forms div wrap all forms------*/
 #forms {
@@ -246,9 +236,9 @@ article p {
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 80%;
-    
+    height: 80%;  
 }
+
 /* radio btns form div */
 .modal form {   
     width: 80%; 
@@ -304,6 +294,12 @@ form input {
     width: 100%;
 }
 
+.not-found {
+    background-color:var(--bronze);
+    color: white;
+    text-align: center;
+}
+
 .loading {
     display:none;
     background-color:var(--bronze);
@@ -316,16 +312,14 @@ form input {
 #act-list {
     width: 80%;
     text-align: center;
+}
 
-}
 .hid-act-list-text {
-    width:100%;
-    
-   
+    width:100%; 
 }
+
 .hid-act-list-text p{
     color: var(--dark);
-    
     background-color: var(--grey);
 }
 
@@ -359,6 +353,27 @@ form input {
     align-items: center;
 }
 
+
+#search-bored {
+    width: 35%;
+    margin-right: 225px;
+}    
+  
+  /* The Close Button */
+  .close, .close-error {
+    color: var(--bronze);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus, 
+  .close-error:hover,
+  .close-error:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 
 /* ----------------search btns -----------*/
 
@@ -429,17 +444,21 @@ form input {
     margin: 5%;
     margin-bottom: 5%;
 } 
+    
 .brew:hover{
     color: var(--vino);
     background-color: var(--cocao);
     cursor: pointer;
 }
+    
 .breweries {
     width: 100%;
 }
+    
 .brewery-display {
     text-align: center;   
 }
+    
 .field p {
     width: 100%;
     text-align: center;
@@ -447,9 +466,11 @@ form input {
     margin-bottom: 5%;
     background-color: var(--grey);
 } 
+    
 .columns .is-mobile .is-centered {
     margin-bottom: 8%;
 }
+    
 .foot {
     position: sticky ;
     background-color: var(--dark);
@@ -459,7 +480,3 @@ form input {
     padding-bottom: 10px;
     margin-bottom: 2%;   
 }
-    
-
-
-

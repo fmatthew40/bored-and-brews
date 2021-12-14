@@ -1,3 +1,5 @@
+
+
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
 var errorModal =document.getElementById("error-modal");
@@ -255,6 +257,8 @@ var displayActivities = function (activityArr) {
 
   activityList.addEventListener("click", chooseActivity);
 }
+
+
 
 // Function to display bored activities on weekday schedule
 var chooseActivity = function (event) {

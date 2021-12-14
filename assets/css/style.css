@@ -203,7 +203,7 @@ article p {
 .modal .error-modal{ 
     position: fixed; 
     padding-bottom: 100px;
-    z-index: 1; /* Sit on top */
+    z-index: 45; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */

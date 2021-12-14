@@ -23,7 +23,6 @@ today.setDate(today.getDate());
 var dateseven = new Date();
 dateseven.setDate(dateseven.getDate() + 7);
 var now = new Date();
-now.setDate(now.getDate() + 20);
  
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
@@ -157,16 +156,16 @@ var loadActivities = function () {
   }
   else { 
     var savedDate = Date.parse(clearData.date);
-    if (now >= savedDate && clearData.cleared) {
+    if (today >= savedDate && clearData.cleared) {
       clearData.cleared = false;
       localStorage.setItem("cleared", JSON.stringify(clearData));
     }
     // if opened monday, clear previous week
-    if (now.getDay === 1  && !clearData.cleared) {
+    if (now.getDay() === 2  && !clearData.cleared) {
       clearDataSet();
     }
     // if program not opened on monday; check if it's been more than seven days from last clear and hasn't been cleared, then calandar needs to be cleared
-    else if (now >= savedDate && !clearData.cleared) {
+    else if (today >= savedDate && !clearData.cleared) {
       clearDataSet();    
     } 
     else {

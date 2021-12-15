@@ -61,7 +61,7 @@ header {
 /* -------------gallery ----------- */
 
 .Gal{
-    overflow-x:scroll ;
+    overflow-x:hidden;
     overflow-y: hidden;
     display:flex;
     align-items: center;
@@ -327,22 +327,14 @@ form input {
 }
 
 /* The Modal Close Button */
-.close, .close-error {
+.close {
     color: var(--bronze);
     font-size: 28px;
     font-weight: bold;
 }
 
-.close-error {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-
 .close:hover,
-.close:focus,
-.close-error:hover,
-.close-error:focus {
+.close:focus{
     color: black;
     text-decoration: none;
     cursor: pointer;

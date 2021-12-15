@@ -13,7 +13,7 @@
     padding: 0;
     box-sizing: border-box;
     border-radius: 13px;
-    
+
 }
 .title h1 {
     margin:0px;
@@ -82,7 +82,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 /* -------------gallery ----------- */
@@ -152,7 +152,7 @@ article:hover {
     background-color: var(--cocao);
 }
 article .title:hover{
-    color: var(--vino);  
+    color: var(--vino);
 }
 
 article .subtitle:hover{
@@ -180,13 +180,6 @@ article p {
     margin-bottom: 5%;
 }
 
-.tile .is-vertical .is-12{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;  
-}
-
 .tile {
     background-color: var(--vino);
     display: flex;
@@ -194,7 +187,7 @@ article p {
     justify-content: center;
     align-items: center;
     margin-top: 10%px;
-    margin:6px;  
+    margin:6px;
 }
 
 .day {
@@ -219,6 +212,14 @@ article p {
 
 .error-modal {
     display: none;
+    position: fixed;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    margin: 30% auto;
+    z-index: 45;
 }
 
 /* .container p {
@@ -226,30 +227,22 @@ article p {
 } */
 
 /* The Modal (background) ------------------------*/
-.modal .error-modal{ 
-    position: fixed; 
-    padding-bottom: 100px;
+.modal {
+    position: fixed;
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow:scroll; /* Enable scroll if needed */    
+    overflow:scroll; /* Enable scroll if needed */
     color: var(--bronze);
-} 
+}
 
 /* Modal Content/Box */
 .modal-content {
     background-color: var(--vino);
-    margin-top:5% ;
     padding: 8px;
     border: 5px var(--bronze);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width:80%;
-    height: 80%;
     border: solid 10px;
     border-color: rgb(0,0,0); /* Fallback color */
     border-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -261,63 +254,61 @@ article p {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    height: 80%;  
+    width: 100%;
+    height: 80%;
+    margin-top: 3vh;
 }
 
 /* radio btns form div */
-.modal form {   
-    width: 80%; 
-    height: 70%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+.modal form {
     background-color: var(--cocao);
     padding: 5px;
-    margin-bottom: 5%;
+    margin: 8px auto;
+    min-width: 60%;
+}
+.control-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 }
 
 /*------------- activities list----------*/
 
 .act-title {
-    width:100%;
-    align-items: center;
     text-align: center;
-    font-size: 24px;  
+    font-size: 24px;
 }
 
 /* wrapping for radio btns */
-.control-form .activity-radio  {
-    height: 80%;
-    width: 80%;  
-    display:inline-table;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}  
 
 form input {
     background-color: var(--meat);
 }
 
 .radio {
-    background-color: var(--vino);    
+    background-color: var(--vino);
     padding: 3px;
     height: 5%;
-    width: 30%;
+    width: 8rem;
     margin: 5px;
 }
 
-/*---------pick activities*/
-
+/*---------pick actitities*/
 .act-alert {
-    display:none;
     background-color:var(--meat);
     color: rgb(231, 76, 76);
+}
+.loading {
+    background-color:var(--bronze);
+    color: white;
+}
+.act-alert, .loading {
+    display:none;
     font:bold;
     text-align: center;
     width: 100%;
+    margin-bottom: 10px;
+    width: 40%!important;
 }
 
 .not-found {
@@ -326,22 +317,13 @@ form input {
     text-align: center;
 }
 
-.loading {
-    display:none;
-    background-color:var(--bronze);
-    color: white;
-    text-align: center;
-    width: 100%;
-    margin-bottom:5% ;
-}
-
 #act-list {
     width: 80%;
     text-align: center;
 }
 
 .hid-act-list-text {
-    width:100%; 
+    width:100%;
 }
 
 .hid-act-list-text p{
@@ -359,7 +341,7 @@ form input {
     color:var(--meat);
     background-color: rgb(132, 115, 115);
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 8px;
     padding: 5px;
     width:80%;
 }
@@ -373,93 +355,65 @@ form input {
 #activities {
     display:flex;
     justify-content: center;
-    flex-direction: row;
-    margin:17px;
+    margin: 5px;
+    margin-bottom: 0px;
     flex-flow: row wrap;
     align-items: center;
 }
 
-
-#search-bored {
-    width: 35%;
-    margin-right: 225px;
-}    
-  
-  /* The Close Button */
-  .close, .close-error {
+/* The Close Button */
+.close, .close-error {
     color: var(--bronze);
-    float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus, 
-  .close-error:hover,
-  .close-error:focus {
+}
+
+.close-error {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.close:hover,
+.close:focus,
+.close-error:hover,
+.close-error:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-/* ----------------search btns -----------*/
-
-.field label {
-    color: var(--bronze);
 }
 
-.sbtns { 
-    width: 100%;
-    align-items: center;
+/* ----------------search btns -----------*/
+.field label {
+    color: var(--bronze);
 }
 
  .closediv {
     float: right;
     position: absolute;
     top: 0;
-    right: 0; 
+    right: 0;
     margin-right:14px;
-} 
-
-/* search btn */
-.columns .is-mobile .is-centered {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
 }
-
- .f-btns {
-    align-items: center;
-    display: row;
+.f-btns {
     color: var(--bronze);
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 100%;
+    margin: 8px auto;
+    width: 10rem;
+    font-size: .9rem;
     text-align: center;
     border-color: var(--vino);
-}
-
-#search-brews {
-    width: 45%;
-    padding:7px;
-    align-items: center;
     background-color: var(--cocao);
 }
 
-#search-bored {
-    width: 45%;
-   padding:7px;
-   background-color: var(--cocao);
-    align-items: center;
-}    
-
 .field {
-    justify-content: center;
-    align-items: top;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
     color: var(--grey);
-    margin:0 10% 0 10;
-   width: 80%;
-   
+    width: 80%;
+}
+.field label {
+    color: var(--bronze);
 }
 
 .brew{
@@ -470,40 +424,35 @@ form input {
     border-color: var(--vino);
     margin: 5%;
     margin-bottom: 5%;
-} 
-    
+}
+
 .brew:hover{
     color: var(--vino);
     background-color: var(--cocao);
     cursor: pointer;
 }
-    
+
 .breweries {
     width: 100%;
 }
-    
+
 .brewery-display {
-    text-align: center;   
+    text-align: center;
 }
-    
+
 .field p {
     width: 100%;
     text-align: center;
     color: var(--dark);
     margin-bottom: 5%;
     background-color: var(--grey);
-} 
-    
-.columns .is-mobile .is-centered {
-    margin-bottom: 8%;
 }
-    
+
 .foot {
-    position: sticky ;
     background-color: var(--dark);
     width: 95%;
     text-align: center;
     padding-top: 1%;
     padding-bottom: 10px;
-    margin-bottom: 2%;   
+    margin-bottom: 2%;
 }

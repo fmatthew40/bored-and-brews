@@ -34,9 +34,6 @@
     font-size:26px;
     width:100%;
 }
-/* .navv{
-    color: var(--grey);
-}
 .navv:hover{
     color: var(--bronze);
 } */
@@ -50,25 +47,18 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--vino);
-    display:flex;
+    /* display:flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     border-radius: 0;
-    width: 100%;
+    width: 100%; */
 }
 
 /* Header */
 header {
     background-size: cover;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 2%;
-    margin-bottom: 0%;
-    margin-top: 3%;
+    border-radius: 0px 0px 12px 12px;
     background-color: var(--bronze);
 }
 

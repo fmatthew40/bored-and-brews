@@ -20,16 +20,15 @@
 }
 .title {
     text-align: center;
-    color: var(--grey);
+    color: var(--vino);
     text-align: top;
     font-size: 40px;
     font-style: italic;
     width:100%;
-    margin: 3%;
 }
-.title:hover{
+/* .title:hover{
     color: var(--vino);
-}
+} */
 
 .subtitle {
     text-align: center;
@@ -47,7 +46,7 @@
 
 .motto {
     text-align:center;
-    font-size: 16px;
+    font-size: 18px;
     font-weight:bold;
 }
 
@@ -71,6 +70,7 @@ header {
     align-items: center;
     width: 100%;
     margin: 2%;
+    margin-bottom: 0%;
     margin-top: 3%;
     background-color: var(--bronze);
 }
@@ -81,7 +81,7 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  width: 100%;
+    width: 100%;
     margin-top: 20px; 
 }
 
@@ -97,17 +97,38 @@ header {
     display:flex;
     align-items: center;
     position: relative;
-    margin: 2rem auto;
+    margin: auto;
     width:60%;
+    margin-bottom: 40px;
 }
 
 .Gimages {
     display: flex;
     width: 100%;
-    height: 500px;
+    height: 300px;
 }
 
 /*-----------calendar-----------*/
+.directions {
+    display:flex;
+    flex-direction: column;
+}
+
+.dir-header {
+    display: flex;
+    text-align: center;
+    font-size: 32px;
+    color:burlywood;
+    line-height: 1.2;
+}
+
+.dir-para {
+    display: flex;
+    text-align: center;
+    font-size: 22px;
+    color:burlywood;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -187,6 +208,11 @@ article p {
     margin: 10%;
     width: 100%;
 }
+
+.day:hover {
+    cursor:pointer;
+}
+
 .modal {
     display: none;
 }
@@ -195,9 +221,9 @@ article p {
     display: none;
 }
 
-.container p {
+/* .container p {
     color: var(--vino);
-}
+} */
 
 /* The Modal (background) ------------------------*/
 .modal .error-modal{ 
@@ -283,7 +309,7 @@ form input {
     margin: 5px;
 }
 
-/*---------pick actitities*/
+/*---------pick activities*/
 
 .act-alert {
     display:none;
@@ -374,12 +400,13 @@ form input {
     color: black;
     text-decoration: none;
     cursor: pointer;
-
+  }
 /* ----------------search btns -----------*/
 
 .field label {
     color: var(--bronze);
 }
+
 .sbtns { 
     width: 100%;
     align-items: center;

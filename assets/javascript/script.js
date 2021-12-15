@@ -208,7 +208,6 @@ var getActivities = function () {
   getBoredApiData(radioActVal);
 
   activityList.addEventListener("click", chooseActivity);
-
 }
 
 

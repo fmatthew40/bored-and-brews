@@ -211,7 +211,7 @@ var getBoredApiData = function (radioActVal) {
   //remove alert after activities load
   activityAlert.style.display = "none"
 
-  var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
+  var boredUrl = "https://www.boredapi.com/api/activity?type=" + radioActVal
 
     fetch(boredUrl).then(function(response) {
       if(response.ok) {

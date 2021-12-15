@@ -187,11 +187,12 @@ article p {
 .error-modal {
     display: none;
     position: fixed;
+    overflow: hidden;
     top: 0px;
     left: 0px;
     height: 100%;
     width: 100%;
-    margin: auto;
+    margin: 30% auto;
     z-index: 45;
 }
 
@@ -200,7 +201,7 @@ article p {
 }
 
 /* The Modal (background) ------------------------*/
-.modal .error-modal{
+.modal {
     position: fixed;
     z-index: 1; /* Sit on top */
     left: 0;

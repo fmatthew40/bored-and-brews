@@ -1,6 +1,5 @@
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
-var errorModal =document.getElementById("error-modal");
 var activitiesRadio = document.getElementsByName("activity")
 var activityList = document.getElementById("activities");
 var activityRadio = document.querySelector(".activity-radio, .activity-radio>*")
@@ -11,7 +10,6 @@ var breweryList = document.getElementById("breweries");
 var searchBoredBtn = document.getElementById("search-bored");
 var searchBrewsBtn = document.getElementById("search-brews");
 var modalExit = document.getElementsByClassName("close")[0];
-var errorModalExit = document.getElementsByClassName("close-error")[0];
 var activityArray = [];
 var day = "";
 var activity = "";
@@ -56,19 +54,9 @@ modalExit.onclick = function () {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal || event.target == errorModal) {
+  if (event.target == modal) {
     modal.style.display = "none";
-    errorModal.style.display = "none";
   }
-}
-
-var errorModalDisplay = function () {
-  modal.style.display = 'none';
-  errorModal.style.display = 'block';
-}
-
-errorModalExit.onclick = function() {
-  errorModal.style.display = "none";
 }
 
 // When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
@@ -90,8 +78,8 @@ var getBrews = function () {
       }
     })
   .catch(function(error) {
-    errorModalDisplay();
-  })
+    window.location.href = "error.html";
+  });
 }
 
 // Function to display breweries in an ordered list under the city search input field 
@@ -243,7 +231,7 @@ var getBoredApiData = function (radioActVal) {
 
     })
     .catch(function(error) {
-      errorModalDisplay();
+      window.location.href = "error.html";
     });
 }
 

@@ -26,9 +26,6 @@
     font-style: italic;
     width:100%;
 }
-/* .title:hover{
-    color: var(--vino);
-} */
 
 .subtitle {
     text-align: center;
@@ -37,12 +34,12 @@
     font-size:26px;
     width:100%;
 }
-.navv{
+/* .navv{
     color: var(--grey);
 }
 .navv:hover{
     color: var(--bronze);
-}
+} */
 
 .motto {
     text-align:center;
@@ -86,10 +83,6 @@ header {
 }
 
 /* -------------gallery ----------- */
-.hero .navbar {
-   border-bottom-left-radius: 0px;
-   border-bottom-right-radius: 0px;
-}
 
 .Gal{
     overflow-x:scroll ;
@@ -109,27 +102,27 @@ header {
 }
 
 /*-----------calendar-----------*/
-.directions {
+/* .directions {
     display:flex;
     flex-direction: column;
-}
+} */
 
-.dir-header {
+/* .dir-header {
     display: flex;
     text-align: center;
     font-size: 32px;
     color:burlywood;
     line-height: 1.2;
-}
+} */
 
 .dir-para {
-    display: flex;
+    /* display: flex; */
     text-align: center;
     font-size: 22px;
     color:burlywood;
 }
 
-.container {
+/* .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -137,16 +130,16 @@ header {
     margin-bottom: 5%;
     margin-top: 10%;
     width: 80%;
-}
+} */
 
 .c-sub:hover {
     color: var(--vino);
 }
 article {
     background-color: var(--bronze);
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 }
 article:hover {
     background-color: var(--cocao);
@@ -165,10 +158,10 @@ article p {
 
 .notification.is-primary{
     background-color: var(--bronze);
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .notification.is-primary:hover{
@@ -176,38 +169,34 @@ article p {
     cursor:pointer;
 }
 
-.tile .is-ancestor {
+/* .tile .is-ancestor {
     margin-bottom: 5%;
-}
+} */
 
 .tile {
     background-color: var(--vino);
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-top: 10%px;
-    margin:6px;
+    margin:6px; */
 }
 
 .day {
     background-color: var(--bronze);
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     text-align: top;
     border-radius: 10px;
     margin: 10%;
-    width: 100%;
+    width: 100%; */
 }
 
 .day:hover {
     cursor:pointer;
-}
-
-.modal {
-    display: none;
 }
 
 .error-modal {
@@ -228,6 +217,7 @@ article p {
 
 /* The Modal (background) ------------------------*/
 .modal {
+    display: none;
     position: fixed;
     z-index: 1; /* Sit on top */
     left: 0;
@@ -361,29 +351,6 @@ form input {
     align-items: center;
 }
 
-/* The Close Button */
-.close, .close-error {
-    color: var(--bronze);
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close-error {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-
-.close:hover,
-.close:focus,
-.close-error:hover,
-.close-error:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* ----------------search btns -----------*/
 .field label {
     color: var(--bronze);
 }
@@ -448,6 +415,30 @@ form input {
     background-color: var(--grey);
 }
 
+/* The Modal Close Button */
+.close, .close-error {
+    color: var(--bronze);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-error {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.close:hover,
+.close:focus,
+.close-error:hover,
+.close-error:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ 
+/* Footer */
 .foot {
     background-color: var(--dark);
     width: 95%;

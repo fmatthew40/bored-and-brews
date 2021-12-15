@@ -95,27 +95,16 @@
     <img src="https://source.unsplash.com/random/100/?art" alt="random art">
     <img src="https://source.unsplash.com/random/100/?game" alt="random game">
     <img src="https://source.unsplash.com/random/100/?pets" alt="random pets">
- 
- 
-   
-
-
 </div>
 </section>
 
-
     </header>
-
-
-    
-
     <!--------Containers------->
     <section class="container">
 
         <div class="tile is-ancestor">
             <!------calendar-box--->
             <div id="calendar" class="">
-
 
                 <!--------------------->
                 <div class="tile">
@@ -134,7 +123,6 @@
                                   <span class="monday-brews"></span>
                                   </p>
                             </article>
-
                         </div>
 
                         <div class="">
@@ -229,11 +217,9 @@
                             <span class="sunday-brews"></span></p>
                     </article>
                 </div>
-
             </div>
         </div>
     </section>
-
 
     <!----------------------- MODAL SECTION---------------------->
     <section>
@@ -307,12 +293,14 @@
                         <ol id="activities">  </ol>
                     </div>
                     </div>
+                    <button id="search-bored" class="f-btns button">
+                        Kill Boredom
+                        <i  class="fas fa-umbrella-beach"></i>
+                    </button>
 
                     <!-- show alert if nothing was chosen / show loading when it loads -->
                     <p class="act-alert">Please Select An Activity Category</p>
                     <p class="loading">Loading Activities Please Wait...</p>
-
-                    
 
                     <!--hidden brew form-->
                     <div class="field" id="brew-form">     
@@ -322,34 +310,29 @@
                              <ol id="breweries"></ol>
                         </div>
                        
-                            <!-- Search city and search btns -->
-                             <!--search city-->
-                             <label class="label has-text-left">Enter a city to search for brews near you!</label>
-                             <div   class="control">
-                             <input id="city" 
-                                    class="input" 
-                                    type="text" 
-                                    placeholder="Tucson">
-                             </div>
-                            <!--search bored-->
-                            <div class="sbtns">
-                                <button id="search-bored" class="f-btns button ">
-                                Kill Boredom
-                                <i  class="fas fa-umbrella-beach"></i>
-                                </button>
-                            <!--search brews--->
-                                <button id="search-brews" class="f-btns button ">
-                                Get Brews
-                                <i class="fas fa-cocktail"></i>
-                                </button>
-                            </div>
-
+                        <!-- Search city and search btns -->
+                        <!--search city-->
+                        <label class="label has-text-left">Enter a city to search for brews near you!</label>
+                        <div   class="control">
+                            <input id="city" 
+                            class="input" 
+                            type="text" 
+                            placeholder="Tucson">
+                        </div>
+                        <!--search brew-->   
+                        <button id="search-brews" class="f-btns button ">
+                            Get Brews
+                            <i class="fas fa-cocktail"></i>
+                        </button>
+                            
                     </div>
                
                 </div><!--forms end---------------------------->
             </div><!--modal content end----->
          </div><!--modal end----------->
-    </section>
+ </section>
+
+ <section>
         <div class="error-modal" id="error-modal">
             <div class="modal-content">
                 <span class="close-error">&times;</span>

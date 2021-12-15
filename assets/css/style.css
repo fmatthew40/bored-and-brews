@@ -80,12 +80,12 @@ header {
 }
 .dir-header {
     text-align: center;
-    font-size: 2.2rem   ;
+    font-size: 1.8rem   ;
     color: burlywood;
 }
 .dir-para {
     text-align: center;
-    font-size: 22px;
+    font-size: 1rem;
     color:burlywood;
 }
 
@@ -140,9 +140,6 @@ article p {
     z-index: 45;
 }
 
-/* .container p {
-    color: var(--vino);
-} */
 
 /* The Modal (background) ------------------------*/
 .modal {
@@ -374,4 +371,10 @@ form input {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+@media screen and (max-width:768px) {
+    #gallery {
+        display: none;
+    }
+    
 }

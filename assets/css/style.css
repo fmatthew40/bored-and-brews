@@ -126,19 +126,6 @@ article p {
     cursor:pointer;
 }
 
-.error-modal {
-    display: none;
-    position: fixed;
-    overflow: hidden;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
-    margin: 30% auto;
-    z-index: 45;
-}
-
-
 /* The Modal (background) ------------------------*/
 .modal {
     display: none;

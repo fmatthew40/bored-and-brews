@@ -24,7 +24,7 @@ If you would like to access the code for this project, please visit this [GitHub
 
 # Preview
 Below are several screenshots of the Bored and Brews Application:
-![Bored and Brews](assets/images/.png)
+![Bored and Brews](assets/images/bored-modal.png)
 
 # Functionality
 
@@ -42,6 +42,6 @@ Yin Qin:
 
 Sammi Moore:
 
-Elle Knapp:
+Elle Knapp: javascript, localstorage, html layout, css styling
 
 # Credit

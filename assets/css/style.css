@@ -192,6 +192,7 @@ form input {
     height: 5%;
     width: 8rem;
     margin: 5px;
+    border-radius: 10px;
 }
 
 /*---------pick actitities*/
@@ -245,12 +246,16 @@ form input {
     margin-bottom: 8px;
     padding: 5px;
     width:80%;
+    border-radius: 12px;
 }
 
 .act-item:hover{
     color: var(--vino);
     background-color: var(--cocao);
     cursor: pointer;
+}
+.act-item:active {
+    background-color: black;
 }
 
 #activities {
@@ -302,12 +307,17 @@ form input {
     border-color: var(--vino);
     margin: 5%;
     margin-bottom: 5%;
+    border-radius: 8px;
 }
 
 .brew:hover{
     color: var(--vino);
     background-color: var(--cocao);
     cursor: pointer;
+}
+
+.brew:active {
+    background-color: black;
 }
 
 .breweries {

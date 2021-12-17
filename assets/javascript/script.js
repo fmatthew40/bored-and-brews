@@ -25,7 +25,7 @@ console.log("working");
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
   day = event.target;
-  if (day.matches(".day>*, .day")) {
+  if (day.matches(".day, .day .title, .day span")) {
     day = day.closest("article").getAttribute("id");
     setVariables(day);
     modalInputFunction();

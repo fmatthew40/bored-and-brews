@@ -2,7 +2,7 @@
 
 # Description
 
-Bored and Brews is an app that allows users to find fun activities to defeat boredome and great brews to enjoy after. This app allows users to schedule these actvities and drinks in a weekly calendar. 
+Bored and Brews is an app that allows users to search for fun activities to defeat boredom, as well as find popular local breweries. The app has a user friendly interface that provides easy activity category selection and simple city searching. Bored and Brews allows users to schedule their selected activity and brewery in a weekly calendar. 
 
 # Table of Contents
 - [Built With](#built-with)
@@ -50,9 +50,9 @@ Matthew Foster: JavaScript, CSS, design
 
 Yin Qin: bulma, CSS styling, images, layout, design
 
-Sammi Moore: JavasScript, HTML, CSS, bulma
+Sammi Moore: JavasScript, HTML, CSS, Bulma
 
-Elle Knapp: JavaScript, localstorage, HTML layout, CSS styling, bulma
+Elle Knapp: JavaScript, localstorage, HTML layout, CSS styling, Bulma
 
 # Credit
  

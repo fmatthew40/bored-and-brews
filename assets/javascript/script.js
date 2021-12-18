@@ -1,10 +1,8 @@
-
-
 var calendarDiv = document.querySelector("#calendar");
 var modal = document.getElementById("modal");
-var errorModal =document.getElementById("error-modal");
 var activitiesRadio = document.getElementsByName("activity")
 var activityList = document.getElementById("activities");
+var activityRadio = document.querySelector(".activity-radio, .activity-radio>*")
 var activityAlert = document.getElementsByClassName("act-alert")[0];
 var loadingAlert = document.getElementsByClassName("loading")[0];
 var cityInput = document.getElementById("city");
@@ -12,7 +10,6 @@ var breweryList = document.getElementById("breweries");
 var searchBoredBtn = document.getElementById("search-bored");
 var searchBrewsBtn = document.getElementById("search-brews");
 var modalExit = document.getElementsByClassName("close")[0];
-var errorModalExit = document.getElementsByClassName("close-error")[0];
 var activityArray = [];
 var day = "";
 var activity = "";
@@ -23,11 +20,12 @@ today.setDate(today.getDate());
 var dateseven = new Date();
 dateseven.setDate(dateseven.getDate() + 7);
 var now = new Date();
+console.log("working");
  
 // handler to call modal when a day is clicked
 var divHandler = function (event) {
   day = event.target;
-  if (day.matches(".day>*, .day")) {
+  if (day.matches(".day, .day .title, .day span")) {
     day = day.closest("article").getAttribute("id");
     setVariables(day);
     modalInputFunction();
@@ -56,19 +54,9 @@ modalExit.onclick = function () {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal || event.target == errorModal) {
+  if (event.target == modal) {
     modal.style.display = "none";
-    errorModal.style.display = "none";
   }
-}
-
-var errorModalDisplay = function () {
-  modal.style.display = 'none';
-  errorModal.style.display = 'block';
-}
-
-errorModalExit.onclick = function() {
-  errorModal.style.display = "none";
 }
 
 // When the user clicks the search button an api fetch call will occur to find breweries near the city they searched
@@ -90,8 +78,8 @@ var getBrews = function () {
       }
     })
   .catch(function(error) {
-    errorModalDisplay();
-  })
+    window.location.href = "error.html";
+  });
 }
 
 // Function to display breweries in an ordered list under the city search input field 
@@ -189,7 +177,6 @@ function displaySavedActvities(data) {
 
 // Function to get values from radio buttons
 var getActivities = function () {
-
   for (i = 0; i < activitiesRadio.length; i++) {
     var radioValue = activitiesRadio[i];
 
@@ -202,13 +189,18 @@ var getActivities = function () {
       loadingAlert.style.display = "block";
     } else if (!radioValue.checked) {
       //alert user to choose a category
+      searchBoredBtn.style.display = 'none';
       activityAlert.style.display = "block";
+      activityRadio.onclick = function (event) {
+        searchBoredBtn.style.display = 'block';
+        activityAlert.style.display = 'none';
+      }
     }
+    
   }
   getBoredApiData(radioActVal);
 
   activityList.addEventListener("click", chooseActivity);
-
 }
 
 
@@ -219,7 +211,7 @@ var getBoredApiData = function (radioActVal) {
   //remove alert after activities load
   activityAlert.style.display = "none"
 
-  var boredUrl = "http://www.boredapi.com/api/activity?type=" + radioActVal
+  var boredUrl = "https://www.boredapi.com/api/activity?type=" + radioActVal
 
     fetch(boredUrl).then(function(response) {
       if(response.ok) {
@@ -239,7 +231,7 @@ var getBoredApiData = function (radioActVal) {
 
     })
     .catch(function(error) {
-      errorModalDisplay();
+      window.location.href = "error.html";
     });
 }
 

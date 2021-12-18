@@ -57,9 +57,7 @@ header {
     font-size: 18px;
     font-weight:bold;
 }
-
 /* -------------gallery ----------- */
-
 .Gal{
     overflow-x:scroll;
     overflow-y: hidden;
@@ -70,7 +68,6 @@ header {
     width:60%;
     margin-bottom: 40px;
     border-radius: 13px;
-    padding: 3%;
 }
 
 .title .is-child {

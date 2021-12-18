@@ -31,12 +31,12 @@ Bored and Brews Application:
 # Functionality
 
 Bored and Brews has the following functionalities:
-* clickable days 
-* modal to search for random activities based on interest
-* clickable activities to add to calendar
+* Clickable days 
+* Modal to search for random activities based on interest
+* Clickable activities to add to calendar
 * Search bar to look for breweries based on city
-* clickable breweries to add to calendar
-* local storage that will save activites and breweries and reset the calendar every monday
+* Clickable breweries to add to calendar
+* Local storage that will save activites and breweries and reset the calendar every monday
 
 # Bored and Brews Link
 The link to the Bored and Brews application is provided below:
